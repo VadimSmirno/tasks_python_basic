@@ -7,10 +7,12 @@ y2 = float(input('Y: '))
 
 x_diff = x1 - x2
 if x_diff == 0:
-    print ('Уравнение прямой x = ',x1)
+    print('Уравнение прямой x = ', x1)
 else:
     y_diff = y1 - y2
     k = y_diff / x_diff
     b = y2 - k * x2
     print("Уравнение прямой, проходящей через эти точки:")
     print("y = ", k, " * x + ", b)
+
+# зачёт!
