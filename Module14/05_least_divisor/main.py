@@ -1,10 +1,12 @@
-number = int(input('Введите число '))
-for i in range(2, number + 1):
-    if number % i == 0:
-        print('Наименьший делитель ', i)
-        break
 
-# TODO, пожалуйста, реализуйте функцией.
-# TODO, Если переменную цикла используем в коде, её необходимо назвать так, чтобы название отражало суть содержания.
-#  "i" не отражает =)
+
+def divider (number):
+    for numeral in range(2, number + 1):
+        if number % numeral == 0:
+            print('Наименьший делитель ', numeral)
+            break
+number = int(input('Введите число '))
+divider (number)
+
+
 
