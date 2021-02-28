@@ -17,15 +17,15 @@ def reverse_number(n, NUM):
         else:
             break
 
-    a = whole_part + '.' + fractional_part
+    whole_part_fractional_part = whole_part + '.' + fractional_part
 
-    print(NUM, 'число наоборот:', a)
-    return float(a)
+    print(NUM, 'число наоборот:', whole_part_fractional_part)
+    return float(whole_part_fractional_part)
 
 
-n = input('Введите первое число ')
+number1 = input('Введите первое число ')
 
-n2 = input('Введите второе число ')
-print(reverse_number(n, 'Первое') + reverse_number(n2, 'Второе'))
+number2 = input('Введите второе число ')
+print('Сумма чисел "наоборот"', reverse_number(number1, 'Первое') + reverse_number(number2, 'Второе'))
 
 # TODO, пожалуйста, поправьте нейминг. Названия из одной буквы не отражают суть содержимого переменной =)
