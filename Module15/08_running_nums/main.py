@@ -3,7 +3,7 @@ shift = int(input('Сдвиг: '))
 finish_list =  []
 
 for i in range (1,shift+1):
-    finish_list.append(start_list[len(start_list)-i])
+    finish_list = [(start_list[len(start_list)-i])] + finish_list
 
 for index in start_list:
     finish_list.append(index)
