@@ -4,10 +4,10 @@ films = ['Крепкий орешек', 'Назад в будущее', 'Так�
 count_films = len (films)
 
 favorite_films = []
-# TODO, цикл получился бесконечным, возможно, лучше проверять текстовое значение 0? =)
-while count_films != 0:
+
+for _ in range (1,len(films)+1):
     interested_films = input('Введите название фильма: ')
-    count_films -= 1
+
 
     if interested_films in films:
         favorite_films.append(interested_films)
