@@ -9,6 +9,7 @@ for index in range (1,number_video_cards+1):
     old_list_video_cards.append(version_video_cards)
 
 for num in  old_list_video_cards:
+    # TODO, как нам определить максимальное число без функции max? =)
     if num < max(old_list_video_cards):
         new_list_video_cards.append(num)
 

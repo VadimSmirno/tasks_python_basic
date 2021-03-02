@@ -7,7 +7,7 @@ while number_box != 0:
     if weight_box < 200:
         list_weight_box.append(weight_box)
     else:
-        print ('Контейнер слишком тяжелый')
+        print('Контейнер слишком тяжелый')
         number_box += 1
     number_box -= 1
 print(list_weight_box)
@@ -18,4 +18,6 @@ for index in list_weight_box:
     if index >= new_weight_box:
         new_list_weight_box.append(index)
 
-print ('Номер куда встанет новы контейнер', len(new_list_weight_box)+1)
+print('Номер куда встанет новы контейнер', len(new_list_weight_box) + 1)
+
+# зачёт!
