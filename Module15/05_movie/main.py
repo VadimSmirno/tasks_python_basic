@@ -5,7 +5,6 @@ count_films = len(films)
 
 favorite_films = []
 
-
 interested_films = input('Введите название фильма: ')
 while interested_films != 'end':
     if interested_films in films:
@@ -16,4 +15,4 @@ while interested_films != 'end':
 
 print('Любимые фильмы', favorite_films)
 
-
+# зачёт!
