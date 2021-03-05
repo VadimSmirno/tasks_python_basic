@@ -9,5 +9,13 @@ violator_songs = [
     ['Blue Dress', 4.29],
     ['Clean', 5.83]
 ]
+summ = 0
+number_songs = int(input('Сколько песен выбрать? '))
+for i_num in range (1,number_songs+1):
+    print('Название',i_num,'песни:', end = '')
+    name_songs = input()
+    for i in range(len((violator_songs))):
+        if violator_songs [i][0] == name_songs:
+            summ += violator_songs[i][1]
+print('Общее время звучания песен',round(summ,2))
 
-# TODO здесь писать код
