@@ -2,6 +2,10 @@ skate_size_list = []
 foot_size_list = []
 count = 0
 number_skates = int(input('Количество коньков: '))
+
+# TODO, пожалуйста, поправьте названия переменных i_ns и i_np.
+#  Названия должны отражать суть содержания переменных.
+
 for i_ns in range(1, number_skates + 1):
     print('размер ', i_ns, 'пары: ', end='')
     skate_size = int(input())
