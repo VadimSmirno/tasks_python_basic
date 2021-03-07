@@ -13,11 +13,11 @@ count = 0
 summ = 0
 part_name = input('Название детали: ')
 
-# TODO, для сокращения количества срезов, предлагаю в этом цикле идти сразу по списку без конструкции range + len
-for i_shop in range(len(shop)):
-    if shop[i_shop][0] == part_name:
+
+for i_shop in shop:
+    if i_shop[0] == part_name:
         count += 1
-        summ += shop[i_shop][1]
+        summ += i_shop[1]
 
 print('Количество деталей: ', count)
 print('Общая сумма: ', summ)
