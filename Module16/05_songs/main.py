@@ -16,8 +16,9 @@ for i_num in range(1, number_songs + 1):
     name_songs = input()
 
     for index in violator_songs:
-        if index [0] == name_songs:
+        if index[0] == name_songs:
             summ += index[1]
 
+print('Общее время звучания песен', round(summ, 2))
 
-print('Общее время звучания песен',  round(summ,2))
+# зачёт!
