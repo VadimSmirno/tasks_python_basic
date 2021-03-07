@@ -13,7 +13,7 @@ count = 0
 summ = 0
 part_name = input('Название детали: ')
 
-
+# TODO, для сокращения количества срезов, предлагаю в этом цикле идти сразу по списку без конструкции range + len.
 for i_shop in range(len(shop)):
     if shop[i_shop][0] == part_name:
         count += 1
