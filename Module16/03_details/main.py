@@ -13,7 +13,6 @@ count = 0
 summ = 0
 part_name = input('Название детали: ')
 
-
 for i_shop in shop:
     if i_shop[0] == part_name:
         count += 1
@@ -21,3 +20,5 @@ for i_shop in shop:
 
 print('Количество деталей: ', count)
 print('Общая сумма: ', summ)
+
+# зачёт!
