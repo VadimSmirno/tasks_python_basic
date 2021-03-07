@@ -13,7 +13,7 @@ count = 0
 summ = 0
 part_name = input('Название детали: ')
 
-# TODO, предлагаю идти в цикле сразу по списку shop, без range и len.
+
 for i_shop in range(len(shop)):
     if shop[i_shop][0] == part_name:
         count += 1
