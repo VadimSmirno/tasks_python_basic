@@ -19,11 +19,11 @@ people.extend(list(range(1, number_people + 1)))
 count = 0 # TODO, эту переменную можем использовать вместо number. По своей сути, она является индексом для удаления.
 while len(people) != 1:
     # TODO, переменную list_length можно использовать для интекса начала следующего списка.
-    list_length = number % len(people)
+    list_length = count % len(people)
     print('\nТекущий круг людей: ', people)
-    print('Начало счета c номера',people[count] )
+    print('Начало счета c номера',people[list_length] )
     print('Выбывает человек под номером: ', people[count])
-    count += 1  # TODO, возможно стоит немного изменить подсчёт.
     people.remove(people[count])
+    count = ?
 
 print('\nОстался человек под номером', people)
