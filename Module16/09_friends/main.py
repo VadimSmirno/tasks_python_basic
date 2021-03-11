@@ -17,9 +17,9 @@ for index in range(1, number_of_lists + 1):
     how = int(input('Сколько? '))
     for index_friends in list_number_friends:
         if  index_friends [0] == to_whom:
-            index_friends [1] -= how
-        if index_friends [0] == from_whom:
             index_friends [1] += how
+        if index_friends [0] == from_whom:
+            index_friends [1] -= how
 
 
 
@@ -31,22 +31,4 @@ for i_element in list_number_friends:
     for j_element in i_element:
         print (j_element, end='  ')
 
-# TODO, в целом, задание решено правильно.
-#  Только если кому, то это "+", а от кого, это "-". Сейчас наоборот =)
-# Введите количество друзей: 3
-# Количество долговых расписок: 2
-# 1  Расписка
-# Кому: 1
-# От кого: 3
-# Сколько? 150
-# 2  Расписка
-# Кому: 1
-# От кого: 2
-# Сколько? 150
-#
-# Баланс друзей:
-#
-# 1  -300
-# 2  150
-# 3  150
-# Process finished with exit code 0
+
