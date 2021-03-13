@@ -1,29 +1,22 @@
 number_people = int(input('Количество человек: '))
 number = int(input('Какое число в считалке: '))
 print('\nЗначит выбывает каждый ', number, 'человек')
-
-
 people = []
-
 
 people.extend(list(range(1, number_people + 1)))
 
+count = 0
 
-# TODO list_length на первую итерацию цикла равняется "2".
-#  А по идее должны начинать с 0. Вычисления "list_length - 2" немного похожи на "костыль" в коде.
-#  Предлагаю создать дополнительную переменную с изначальным значением равным "0".
-#  Возможно её же можно будет использовать для расчёта индекса для удаления.
-# TODO, предлагаю создать дополнительную переменную для расчёта индекса элемента, который необходимо удалить.
-
-
-count = 0 # TODO, эту переменную можем использовать вместо number. По своей сути, она является индексом для удаления.
 while len(people) != 1:
-    # TODO, переменную list_length можно использовать для интекса начала следующего списка.
-    list_length = count % len(people)
+
     print('\nТекущий круг людей: ', people)
-    print('Начало счета c номера',people[list_length] )
-    print('Выбывает человек под номером: ', people[count])
-    people.remove(people[count])
-    count = ?
+    print('Начало счета c номера',people[count])
+    loser_index = (count + number - 1) % len(people)
+    print('Выбывает человек под номером: ', people[loser_index])
+    people.remove(people[loser_index])
+    if loser_index < len(people):
+        count = loser_index
+    else:
+        count = 0
 
 print('\nОстался человек под номером', people)
