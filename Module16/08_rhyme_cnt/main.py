@@ -10,7 +10,7 @@ count = 0
 while len(people) != 1:
 
     print('\nТекущий круг людей: ', people)
-    print('Начало счета c номера',people[count])
+    print('Начало счета c номера', people[count])
     loser_index = (count + number - 1) % len(people)
     print('Выбывает человек под номером: ', people[loser_index])
     people.remove(people[loser_index])
@@ -20,3 +20,5 @@ while len(people) != 1:
         count = 0
 
 print('\nОстался человек под номером', people)
+
+# зачёт!
