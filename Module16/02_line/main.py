@@ -23,3 +23,5 @@ elif count_second_class < len(second_class):
     for index in range(count_second_class, len(second_class)):
         new_list.append((second_class[index]))
 print(new_list)
+
+# зачёт!
