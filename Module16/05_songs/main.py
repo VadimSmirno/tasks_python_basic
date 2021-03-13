@@ -14,9 +14,11 @@ number_songs = int(input('Сколько песен выбрать? '))
 for i_num in range(1, number_songs + 1):
     print('Название', i_num, 'песни:', end='')
     name_songs = input()
-    # TODO, предлагаю идти в цикле сразу по списку violator_songs, без range и len.
-    #  Таким образом сократим количество вычислений в коде =)
-    for i in range(len((violator_songs))):
-        if violator_songs[i][0] == name_songs:
-            summ += violator_songs[i][1]
+
+    for index in violator_songs:
+        if index[0] == name_songs:
+            summ += index[1]
+
 print('Общее время звучания песен', round(summ, 2))
+
+# зачёт!
