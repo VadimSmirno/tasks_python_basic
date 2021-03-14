@@ -5,3 +5,4 @@ count_0 = number_list.count(0)
 new_list = [index for index in reversed((sorted(number_list)))]
 print ('Сжатый список: ',new_list)
 print ('Список без "0" : ', new_list[:-count_0])
+# TODO, давайте немного потренируемся и уберём "0" при помощи List comprehensions.
