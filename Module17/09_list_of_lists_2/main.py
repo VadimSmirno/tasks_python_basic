@@ -4,4 +4,6 @@ nice_list = [[[1, 2, 3], [4, 5, 6], [7, 8, 9]],
 new_list = [i_third for i_first in nice_list
             for i_second in i_first
             for i_third in i_second]
-print (new_list)
+print(new_list)
+
+# зачёт!
