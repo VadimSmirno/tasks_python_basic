@@ -9,11 +9,8 @@ for i_text in text:
         list_symbol.append(symbol)
         list_symbol.append(i_text)
         symbol = ''
-
+list_symbol.append(symbol)
 
 for i_list_symbol in list_symbol:
     print (i_list_symbol[::-1], end = '')
 
-# TODO Сообщение: Это задание очень! простое
-#  отЭ еинадаз ьнечо!
-#  Пока что последнее слово пропадает, если убрать "."
