@@ -14,3 +14,6 @@ for i_text in text:
 for i_list_symbol in list_symbol:
     print (i_list_symbol[::-1], end = '')
 
+# TODO Сообщение: Это задание очень! простое
+#  отЭ еинадаз ьнечо!
+#  Пока что последнее слово пропадает, если убрать "."
