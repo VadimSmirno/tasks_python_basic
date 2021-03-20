@@ -12,5 +12,6 @@ for i_text in text:
 list_symbol.append(symbol)
 
 for i_list_symbol in list_symbol:
-    print (i_list_symbol[::-1], end = '')
+    print(i_list_symbol[::-1], end='')
 
+# зачёт!
