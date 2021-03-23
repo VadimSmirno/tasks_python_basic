@@ -9,5 +9,10 @@ violator_songs = {
     'Blue Dress': 4.29,
     'Clean': 5.83
 }
-
-# TODO здесь писать код
+time_songs = 0
+number_songs = int(input('Количество песен: '))
+for i_songs in range(1, number_songs + 1):
+    print ('Название', i_songs, 'пестни: ', end ='')
+    songs = input ('')
+    time_songs += violator_songs[songs]
+print ('Общее время звучания песне: ',round(time_songs,2))
