@@ -45,4 +45,13 @@ data = {
 }
 
 
-# TODO здесь писать код
+print ('Список ключей',data.keys(),'\n\nСписок значений', data.values(),'\n')
+data.get('ETH').update({'total_diff': 100})
+data.get("tokens")[0].get('fst_token_info')['name'] = 'doge'
+deleted_value = data.get("tokens")[0].pop('total_out')
+data.get('ETH').update({'total_out':deleted_value})
+data.get("tokens")[1].get("sec_token_info")['total_price'] = data.get("tokens")[1].get("sec_token_info").pop("price")
+
+print (data)
+
+
