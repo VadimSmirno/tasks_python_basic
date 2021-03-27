@@ -25,11 +25,13 @@ store = {
 }
 
 
-
+# TODO Получилось идеально! =) Молодец!
 for key, value in goods.items():
     print (key, '- ',end='')
     quantity = 0
     result = 0
+    # TODO, Если переменную цикла используем в коде, её необходимо назвать так, чтобы название отражало суть содержания.
+    #  "i" не отражает =)
     for i in store[value]:
         result += i['quantity'] * i['price']
         quantity += i['quantity']
