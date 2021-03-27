@@ -6,7 +6,7 @@ result_set_number = set()
 while numbers != 'Помогите!' or len(result_set_number) == 1:
 
 
-    set_number = {i_num for i_num in numbers.split() if int(i_num) < max_number}
+    set_number = {i_num for i_num in numbers.split() if int(i_num) <= max_number}
     answer = input('Ответ Артема: ').lower()
     print(set_number)
     if answer == 'да':
