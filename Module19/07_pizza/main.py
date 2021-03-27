@@ -2,26 +2,25 @@ number = int(input('Введите количество заказов: '))
 dict_order = {}
 for i_order in range (1, number + 1):
     print(f'{i_order} заказ: ', end='')
-    order = input().lower().split()
+    order = input().lower().split()  # создаю список ['имя','Название пиццы','количество']
+    name = order[0]
+    pizza = order[1]
+    num = int(order[2])
 
-    # TODO, для сокращения количества вычислений, предлагаю создать переменные
-    #  order[0] ... и далее в цикле работать с ними =)
-
-
-    # TODO, по идее, нам потребуется 3 условия
-    #  если покупателя ещё нет,
-    #  если есть, но в заказе нет такой пиццы.
-    #  если есть и в заказе уже есть пица.
-    if order[0] in dict_order:
-        dict_order[order[0]].update({order[1] : int(order[2])})
-
-
-
+    if name not  in dict_order:
+        dict_order.update( {
+            name:{pizza:num}
+        })
+    elif pizza not in dict_order[name]:
+        dict_order[name].update({
+            pizza : num
+        })
     else:
-        dict_order[order[0]] =  {
-                    order[1] : int(order[2])
-                }
-
-    # if order[1] in dict_order[order[0]] and len(dict_order[order[0]]) > 1:
+        dict_order[name][pizza] += num
 
 print (dict_order)
+
+for i_name,j_dict_pizza in sorted(dict_order.items()):
+    print('\n',i_name, ':')
+    for i_pizza,j_num in sorted(dict(j_dict_pizza).items()):
+        print (i_pizza, ':', j_num)
