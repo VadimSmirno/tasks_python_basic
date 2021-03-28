@@ -7,8 +7,8 @@ def height(man):
 
 family_tree = {}
 number = int(input('Введите количество человек: '))
-for i in range(1, number ):
-    print (i, end='')
+for i in range(1, number):
+    print(i, end='')
     child, parent = input(' пара: ').split()
     family_tree[child] = parent
 
@@ -18,3 +18,5 @@ for man in set(family_tree.keys()).union(set(family_tree.values())):
 
 for key, value in sorted(heights.items()):
     print(key, value)
+
+# зачёт!
