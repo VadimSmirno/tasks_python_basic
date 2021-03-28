@@ -24,19 +24,15 @@ store = {
     ],
 }
 
-
-
 for key, value in goods.items():
-    print (key, '- ',end='')
+    print(key, '- ', end='')
     quantity = 0
     result = 0
 
     for i_dict in store[value]:
         result += i_dict['quantity'] * i_dict['price']
         quantity += i_dict['quantity']
-    print (quantity, 'шт, стоимость ', end='')
-    print (result, 'руб')
+    print(quantity, 'шт, стоимость ', end='')
+    print(result, 'руб')
 
-
-
-
+# зачёт!
