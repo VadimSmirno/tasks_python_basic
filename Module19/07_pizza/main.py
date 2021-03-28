@@ -23,7 +23,7 @@ print(dict_order)
 for i_name, j_dict_pizza in sorted(dict_order.items()):
     print('\n', i_name, ':')
     for i_pizza, j_num in sorted(
-            dict(j_dict_pizza).items()):  # dict - лишнее действие, т.к. j_dict_pizza и так словарь.
+           j_dict_pizza.items()):
         print(i_pizza, ':', j_num)
 
 # зачёт!
