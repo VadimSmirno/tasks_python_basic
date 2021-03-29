@@ -18,3 +18,4 @@ for i_songs in range(1, number_songs + 1):
 print('Общее время звучания песне: ', round(time_songs, 2))
 
 # зачёт!
+# зачёт!
