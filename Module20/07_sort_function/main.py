@@ -1,6 +1,6 @@
 def sort(cortege):
     for i in list(cortege):
-        if isinstance(i, float) == True:
+        if isinstance(i, float) == True:  # TODO, лучше "if isinstance(i, float)". Но возможно, стоит проверять int?
             return cortege
 
     lst = sorted(list(cortege))
