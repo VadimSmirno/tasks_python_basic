@@ -1,1 +1,11 @@
-# TODO здесь писать код
+def sort(cortege):
+    for i in list(cortege):
+        if isinstance(i, float) == True:
+            return cortege
+
+    lst = sorted(list(cortege))
+    return tuple(lst)
+
+
+cortege = (1,3,4,5,7,4,3,5.2,64,3,4)
+print (sort(cortege))
