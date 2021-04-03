@@ -20,19 +20,21 @@ students = {
 }
 
 for i_key, i_value in students.items():
-    id_student_age = [i_value['name'],i_value['surname'], i_value['age']]
-    print (id_student_age)
+    id_student_age = [i_value['name'], i_value['surname'], i_value['age']]
+    print(id_student_age)
+
 
 def hobby_len_surname(dict):
     lst = []
     string = 0
-    for key,value in dict.items():
+    for key, value in dict.items():
         lst.extend(value['interests'])
         string += len(value['surname'])
 
     return lst, string
 
+
 my_lst, total_len_surname = hobby_len_surname(students)
 print(my_lst, total_len_surname)
 
-
+# зачёт!
