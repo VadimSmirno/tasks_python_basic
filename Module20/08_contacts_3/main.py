@@ -1,7 +1,7 @@
 d_phonebook = {}
 finish_dict = {}
-flag = False
 while True:
+    flag = False
     act = input('Добавить контакт или найти? ').lower()
     if act == 'добавить':
         name = input('\nИмя? ').lower()
@@ -21,5 +21,5 @@ while True:
             if look_surname in i_person:
                 print(i_person[0], i_person[1],'-', phone)
                 flag = True
-        if flag == False:  # TODO лучше "if not flag".
+        if not flag:
             print ('\nЧеловека с такой фамилией нет в Вашем списке')
