@@ -3,13 +3,10 @@ def is_prime (number):
     for i_num in range (1, number + 1):
         if number % i_num == 0:
             count += 1
-    if count == 2:  # TODO, предлагаю просто возвращать результат сравнения, без условного оператора.
-        return True
-    else:
-        return False
-
+    return count
 
 def list_object (obj_ect):
-    return [i_valuse for i_key, i_valuse in enumerate(obj_ect) if is_prime(i_key)==True]  # TODO, лучше просто if is_prime(i_key) =)
+    return [i_valuse for i_key, i_valuse in enumerate(obj_ect) if is_prime(i_key) == 2]
 
-# TODO пожалуйста, добавьте запуск кода с примером =)
+text = 'О Дивный Новый мир!'
+print (list_object(text))

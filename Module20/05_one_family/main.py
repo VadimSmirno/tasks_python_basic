@@ -11,8 +11,7 @@ family_dict = {
 
 surname = input('Введите фамилию семьи: ')
 for i_person, age in family_dict.items():
-    if i_person[0] == surname or i_person[0] == surname + 'а':
-        # TODO, лучше проверть i_person[0] в surname при помощи in. Код должен отработать немного быстрее =)
+    if surname in i_person or surname + 'а' in i_person :
         print(i_person[0], i_person[1], age)
 
 

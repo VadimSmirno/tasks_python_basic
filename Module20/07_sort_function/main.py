@@ -1,11 +1,13 @@
 def sort(cortege):
     for i in list(cortege):
-        if isinstance(i, float) == True:  # TODO, лучше "if isinstance(i, float)". Но возможно, стоит проверять int?
+        if isinstance(i, int):
+            ''
+        else:
             return cortege
-
-    lst = sorted(list(cortege))
-    return tuple(lst)
+    return tuple(sorted(list(cortege)))
 
 
-cortege = (1,3,4,5,7,4,3,5.2,64,3,4)
+
+
+cortege = (1,3,4,5,7,4,3,5.6,64,3,4)
 print (sort(cortege))
