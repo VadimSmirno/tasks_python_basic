@@ -9,11 +9,12 @@ while True:
         telephone = input('Номер телефона: ')
         if (name,surname) in finish_dict:
             print ('\nЭтот человек уже есть в списке Ваших контактов.')
-        d_phonebook = {
-            (name,surname): telephone
-        }
-        finish_dict.update(d_phonebook)
-        print('\n',finish_dict,'\n')
+        else:
+            d_phonebook = {
+                (name,surname): telephone
+            }
+            finish_dict.update(d_phonebook)
+            print('\n',finish_dict,'\n')
     if act == 'найти':
         look_surname = input('\nЧеловека с какой фамилией Вы хотите найти? ').lower()
         for i_person, phone in finish_dict.items():
