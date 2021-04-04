@@ -38,3 +38,4 @@ my_lst, total_len_surname = hobby_len_surname(students)
 print(my_lst, total_len_surname)
 
 # зачёт!
+# зачёт!
