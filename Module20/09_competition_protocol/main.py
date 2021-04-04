@@ -1,7 +1,7 @@
 score_table = {}
 number = int(input('Сколько записей вносится в протокол?'))
-for time in range(1,number +1):
-    print (time, 'запись:', end='')
+for time in range(1, number + 1):
+    print(time, 'запись:', end='')
     ball, name = input().split()
     ball = int(ball)
     if name in score_table:
@@ -12,9 +12,13 @@ for time in range(1,number +1):
         score_table[name] = [ball, time]
 scores = list(score_table.items())
 
-def score_key(key):
-    return key[1][0]- key[1][1]
 
-scores.sort(key=score_key,reverse=True)
+def score_key(key):
+    return key[1][0] - key[1][1]
+
+
+scores.sort(key=score_key, reverse=True)
 for num in range(3):
-    print (num+1, 'место', scores[num][0], scores[num][1][0])
+    print(num + 1, 'место', scores[num][0], scores[num][1][0])
+
+# зачёт!
