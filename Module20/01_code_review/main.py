@@ -19,26 +19,22 @@ students = {
     }
 }
 
+for i_key, i_value in students.items():
+    id_student_age = [i_value['name'], i_value['surname'], i_value['age']]
+    print(id_student_age)
 
-def f(dict):
+
+def hobby_len_surname(dict):
     lst = []
-    string = ''
-    for i in dict:
-        lst += (dict[i]['interests'])
-        string += dict[i]['surname']
-    cnt = 0
-    for s in string:
-        cnt += 1
-    return lst, cnt
+    string = 0
+    for key, value in dict.items():
+        lst.extend(value['interests'])
+        string += len(value['surname'])
+
+    return lst, string
 
 
-pairs = []
-for i in students:
-    pairs += (i, students[i]['age'])
+my_lst, total_len_surname = hobby_len_surname(students)
+print(my_lst, total_len_surname)
 
-
-my_lst = f(students)[0]
-l = f(students)[1]
-print(my_lst, l)
-
-# TODO исправить код
+# зачёт!
