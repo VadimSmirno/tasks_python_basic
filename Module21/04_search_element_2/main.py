@@ -23,9 +23,10 @@ def find_key(struct, key, count):
         if isinstance(sub_struct, dict):
             if count <= 0:
                 return print('На этом уровне ключ не найден')
-            result = find_key(sub_struct, key, count - 1)
+            result = find_key(sub_struct, key, count - 2)
             if result:
                 break
+
 
     else:
         result = None
@@ -38,8 +39,6 @@ value = find_key(site, user_key, count)
 
 if value:
     print(value)
-else:
+elif None:
     print('Такого ключа в структуре словаря нет')
 
-# TODO, в целом, решено правильно, но на уровне 2 ключа h2 нет. (Он есть на уровне 3)
-#  Но, мы пока что находим =)
