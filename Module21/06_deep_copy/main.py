@@ -11,21 +11,26 @@ site = {
     }
 }
 
-
-
-
 number = int(input('Сколько сайтов? '))
 name_product = input('Введите название продукта для нового сайта: ')
-def fun_site (struct,name,count):
+
+# TODO, в функцию стоит передавать "словарь", "ключ" и новое "значение ключа"
+def fun_site(struct, name, count):
     if count == 0:
         return
 
+    # TODO, проверять наличие нужно ключа необходимо только на текущем уровне.
+    #  Для поиска ключа на текущем уровне словаря стоит применить "in".
+    #  Если ключа на текущем уровне нет идём в цикле по значениям словаря, если они являются словарями,
+    #  то заходим при помощи рекурсии в них.
     struct['html']['head']['title'] = f'Куплю/продам {name} недорого'
     struct['html']['body']['h2'] = f'У нас самая низкая цена на {name}'
-    print (struct)
+    print(struct)
 
     name_product = input('Введите название продукта для нового сайта: ')
-    fun_site(struct,name_product,count-1)
+    fun_site(struct, name_product, count - 1)
 
 
-fun_site(site,name_product,number)
+# TODO, пожалуйста, создайте функцию для вывода структуры словаря как в примере.
+
+fun_site(site, name_product, number)

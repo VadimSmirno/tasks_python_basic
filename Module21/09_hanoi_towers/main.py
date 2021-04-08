@@ -9,3 +9,5 @@ def distribution_disks(number, kernel, kernel2):
 
 number_disks = int(input('Введите количество дисков: '))
 distribution_disks(number_disks, 1, 3)
+
+# зачёт!

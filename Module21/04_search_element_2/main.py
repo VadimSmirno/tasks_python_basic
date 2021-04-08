@@ -39,6 +39,6 @@ value = find_key(site, user_key, count)
 
 if value:
     print(value)
-elif None:
+elif None:  # TODO, только лучше else. =) Иначе итоговый вывод не происходит.
     print('Такого ключа в структуре словаря нет')
 

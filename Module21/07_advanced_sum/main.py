@@ -8,8 +8,7 @@ def sum1(lst):
     return total
 
 
+print(sum1([[1, 2, [3, [[[10]]]]], [1], 3]))
+print(sum1((1, 2, 3, 4, 5)))
 
-
-
-print (sum1([[1, 2, [3]], [1], 3]))
-print (sum1((1, 2, 3, 4, 5)))
+# зачёт!

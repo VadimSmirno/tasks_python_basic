@@ -3,6 +3,8 @@ def min_len(string, cortege):
 
 
 def my_zip(object_, element):
+    # TODO, таким образом возвращаем список. Как вернуть генератор?
+    #  Отличие в скобка верно? =)
     result = [(object_[i_sym], element[i_sym]) for i_sym in range(min_len(object_, element))]
     return result
 
