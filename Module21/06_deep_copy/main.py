@@ -1,3 +1,4 @@
+
 site = {
     'html': {
         'head': {
@@ -11,26 +12,40 @@ site = {
     }
 }
 
+
+
+
+def fun_site(struct, key, new_value):
+    if key[0] in struct:
+        struct[key[0]] = f'Куплю/продам {new_value} недорого'
+    if key[1] in struct:
+        struct[key[1]] = f'У нас самая низкая цена на {new_value}'
+        return struct
+    else:
+        for i_val_struct in struct.values():
+            if isinstance(i_val_struct, dict):
+                fun_site(i_val_struct,key, new_value)
+
+    return struct
+
+
+def pretty(dct, indent=0):
+   for key, value in dct.items():
+      print('\t' * indent,key,':')
+      if isinstance(value, dict):
+         pretty(value, indent+1)
+      else:
+         print(' ' * (indent+1) ,value)
+
+
+
 number = int(input('Сколько сайтов? '))
-name_product = input('Введите название продукта для нового сайта: ')
-
-# TODO, в функцию стоит передавать "словарь", "ключ" и новое "значение ключа"
-def fun_site(struct, name, count):
-    if count == 0:
-        return
-
-    # TODO, проверять наличие нужно ключа необходимо только на текущем уровне.
-    #  Для поиска ключа на текущем уровне словаря стоит применить "in".
-    #  Если ключа на текущем уровне нет идём в цикле по значениям словаря, если они являются словарями,
-    #  то заходим при помощи рекурсии в них.
-    struct['html']['head']['title'] = f'Куплю/продам {name} недорого'
-    struct['html']['body']['h2'] = f'У нас самая низкая цена на {name}'
-    print(struct)
-
+key = 'title','h2'
+for _ in range (number):
     name_product = input('Введите название продукта для нового сайта: ')
-    fun_site(struct, name_product, count - 1)
+    print (f'Сайт для {name_product}')
+    result_fun_site = fun_site(site,key, name_product)
+    print ('site')
+    pretty(result_fun_site)
 
 
-# TODO, пожалуйста, создайте функцию для вывода структуры словаря как в примере.
-
-fun_site(site, name_product, number)
