@@ -1,4 +1,5 @@
 import pprint
+
 site = {
     'html': {
         'head': {
@@ -13,8 +14,6 @@ site = {
 }
 
 
-
-
 def fun_site(struct, key, new_value):
     if key[0] in struct:
         struct[key[0]] = f'Куплю/продам {new_value} недорого'
@@ -24,30 +23,28 @@ def fun_site(struct, key, new_value):
     else:
         for i_val_struct in struct.values():
             if isinstance(i_val_struct, dict):
-                fun_site(i_val_struct,key, new_value)
+                fun_site(i_val_struct, key, new_value)
 
     return struct
-
-
 
 
 def pretty(dct, indent=0):
     for key, value in dct.items():
         if isinstance(value, dict):
             print(' ' * indent, key + ': {')
-            pretty(value, indent+1)
+            pretty(value, indent + 1)
         else:
-            print(' ' * (indent+1) + f"{key}: {value} ")
-    print (' '* (indent+1) + '}')
+            print(' ' * (indent + 1) + f"{key}: {value} ")
+    print(' ' * (indent + 1) + '}')
 
 
 number = int(input('Сколько сайтов? '))
-key = 'title','h2'
-for _ in range (number):
+key = 'title', 'h2'
+for _ in range(number):
     name_product = input('Введите название продукта для нового сайта: ')
-    print (f'Сайт для {name_product}')
-    result_fun_site = fun_site(site,key, name_product)
-    print ('site = {')
+    print(f'Сайт для {name_product}')
+    result_fun_site = fun_site(site, key, name_product)
+    print('site = {')
     pretty(result_fun_site)
 
-
+# зачёт!
