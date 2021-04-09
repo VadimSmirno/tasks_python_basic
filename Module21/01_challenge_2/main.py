@@ -8,3 +8,4 @@ num = int(input('Введите число '))
 number(num)
 
 # зачёт!
+
