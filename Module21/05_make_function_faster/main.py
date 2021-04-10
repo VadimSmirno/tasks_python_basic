@@ -1,6 +1,7 @@
-def calculating_math_func(data,fact = {}):
+def calculating_math_func(data, fact={}):
     if data in fact:
-        result = fact[data] # TODO, если значение есть в словаре, то возвращаем его, дальше вычисления делать не нужно =)
+        result = fact[data]
+        return result
     else:
         result = 1
         for index in range(1, data + 1):
@@ -8,8 +9,12 @@ def calculating_math_func(data,fact = {}):
         fact[data] = result
     result /= data ** 3
     result = result ** 10
+    fact.update({data: result})
     return result
 
 
-print(calculating_math_func(8))
-print(calculating_math_func(8))
+print(calculating_math_func(2))
+print(calculating_math_func(2))
+print(calculating_math_func(3))
+
+# зачёт!
