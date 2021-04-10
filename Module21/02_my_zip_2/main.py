@@ -3,9 +3,8 @@ def min_len(string, cortege):
 
 
 def my_zip(object_, element):
-    # TODO, таким образом возвращается список.
-    #  Чтобы вернуть генератор необходимо заменить квадратные скобки на круглые =)
-    return [(object_[i_sym], element[i_sym]) for i_sym in range(min_len(object_, element))]
+
+    return ((object_[i_sym], element[i_sym]) for i_sym in range(min_len(object_, element)))
 
 
 string = 'qwertyui'
