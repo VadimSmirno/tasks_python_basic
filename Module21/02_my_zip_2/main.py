@@ -3,7 +3,6 @@ def min_len(string, cortege):
 
 
 def my_zip(object_, element):
-
     return ((object_[i_sym], element[i_sym]) for i_sym in range(min_len(object_, element)))
 
 
@@ -12,3 +11,5 @@ cortege = (10, 20, 30, 40, 52)
 
 for i_sym in (my_zip(string, cortege)):
     print(i_sym)
+
+# зачёт!
