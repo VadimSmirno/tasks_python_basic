@@ -28,3 +28,5 @@ print('Строк в файле: ', count_str)
 print('Слов в файле: ', words)
 print(f'Букв в тексте: {letters}')
 zen_python.close()
+
+# зачёт!

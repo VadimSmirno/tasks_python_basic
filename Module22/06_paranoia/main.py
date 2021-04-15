@@ -6,19 +6,22 @@ def cipher(line, step):
         new_char_list += i_char
     return new_char_list
 
-text = open('text.txt','r')
-print ('Содержимое файла text.txt:')
-print (text.read())
+
+text = open('text.txt', 'r')
+print('Содержимое файла text.txt:')
+print(text.read())
 count = 1
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
-for i_sum  in text:
-    result = cipher (i_sum.rstrip('\n').lower(),count)
+for i_sum in text:
+    result = cipher(i_sum.rstrip('\n').lower(), count)
     count += 1
-    cipher_text = open('cipher_text.txt','a')
-    cipher_text.write(result+'\n')
+    cipher_text = open('cipher_text.txt', 'a')
+    cipher_text.write(result + '\n')
 
-print ('Содержимое файла cipher_text.txt:')
-cipher_text = open('cipher_text.txt','r')
-print (cipher_text.read())
+print('Содержимое файла cipher_text.txt:')
+cipher_text = open('cipher_text.txt', 'r')
+print(cipher_text.read())
 text.close()
 cipher_text.close()
+
+# зачёт!
