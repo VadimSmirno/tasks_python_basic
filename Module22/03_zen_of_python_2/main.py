@@ -10,7 +10,8 @@ for i_sym in zen_python:
         if i_letter.isalpha():
             letters += 1
             if i_letter not in dct:
-                # TODO или можно создавать ключ как блоке else но со значение 1 =)
+                #  или можно создавать ключ как блоке else но со значение 1 =)  # я не понял, что можно сделать,
+                #  текущий мой код не рационален?
                 dct_letter = {
                     i_letter: 1
                 }
@@ -21,9 +22,9 @@ for i_sym in zen_python:
 min_word = min(dct.values())
 for key, value in dct.items():
     if value == min_word:
-        print(f'Буква {key} встречается в тексте меньше всего')
+        print(f'Буква "{key}" встречается в тексте меньше всего')
         break
 print('Строк в файле: ', count_str)
 print('Слов в файле: ', words)
-print('Букв в тексте: ', letters)
+print(f'Букв в тексте: {letters}')
 zen_python.close()

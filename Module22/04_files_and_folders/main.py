@@ -1,34 +1,20 @@
 import os
-def find_fail (cur_path):
-    total_file = 0
-    size_file = 0
-    subdirectory = 0
-    for i_elem in os.listdir(cur_path):
-        if os.path.isfile(i_elem):
-            size_file+=os.path.getsize(i_elem)/1024
-            total_file += 1
-            return  total_file,size_file,subdirectory
+size_file = 0
 
-        if os.path.isdir(i_elem):
-            subdirectory+=1
-            find_fail(i_elem)
+faile = input('Введите название папки: ')
+path = os.path.abspath(os.path.join('..','..',faile))
+
+number_file = []
+lst = os.listdir(path)
+for i_direct in lst:
+    path2 = os.path.abspath(os.path.join(path,i_direct))
+    lst2 = os.listdir(path2)
+    number_file.extend(lst2)
+
+    for i_file in lst2:
+         size_file += os.path.getsize(i_file)
+print (f'Размер каталога: {size_file/1024}')
+print (f'Количество подкатологов: {len(lst)}')
+print (f'Количество файлов: {len(number_file)}')
 
 
-
-# TODO, предлагаю пока что не использовать рекурсию.
-#  реализуем 2 цикла.
-#  В первом цикле соберём список директорий из указанного пользователем пути.
-#  Во втором, пройдём по директориям и соберём нужную информацию.
-
-total_faile = 0
-path = os.path.abspath('D:\\')
-# TODO, по умолчанию обычно диск "C" =)
-#  Предлагаю поступить иначе. Давайте запросим у пользователя название папки с заданиями по текущему курсу.
-#  Если пользователь введёт Module14. Как нам попасть в эту папку из текущей директории?
-print (find_fail(path))
-# 1) Создаем путь (например диск D)
-# 2)Создаем функцию в которую передаем наш путь
-# 3) В цикле проходим по списку который состоит из наших папок
-# 4) если встречаем файл, то узнаем его "вес" и передаем значение переменной и увеличиваем счетчик количества файлов
-# 5)а если встречаем директорию. то вызываем рекурсию и увеличиваем счетчик директории
-# 6) функция должна выводить кортеж (количество файлов, общий размер файлов, количество подкаталогов)
