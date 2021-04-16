@@ -12,9 +12,8 @@ for i_direct in lst:
     lst2 = os.listdir(path2)
     count_subdirectory += 1
     for i_file in lst2:
-        size_file += os.path.getsize(i_file)
-        # TODO, предлагаю попробовать перед получением размера сформировать полный путь к файлу исходя из path2 и i_file.
-        #  Таким образом должно получится =)
+        total_path = os.path.abspath(os.path.join(path2,i_file))
+        size_file += os.path.getsize(total_path)
         count_file += 1
 
 print(f'Размер каталога: {size_file / 1024}')
