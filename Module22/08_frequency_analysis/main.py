@@ -25,8 +25,9 @@ for key, value in total_dct.items():
 result = sorted(total_lst, key=lambda x: (-x[1], x[0]))
 analysis = open('analysis.txt', 'a')
 for i_elem in result:
-    analysis.write(i_elem[0] + ' ')  # TODO, для записи в файл предлагаю использовать форматирование.
-    analysis.write(str(i_elem[1]) + '\n')
+    data = f'{i_elem[0]} {str(i_elem[1])}\n'
+    analysis.write(data)
+
 
 analysis = open('analysis.txt', 'r')
 print('Содержимое файла analysis.txt:\n' + analysis.read())

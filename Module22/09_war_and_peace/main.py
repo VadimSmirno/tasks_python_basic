@@ -30,27 +30,27 @@ def print_stats(stats):
     print('+{:-^19}+'.format('+'))
     print('|{: ^9}|{: ^9}|'.format('Буква', 'Частота'))
     print('+{:-^19}+'.format('+'))
-    for char, count in stats.items():
-        print('|{: ^9}|{: ^9}|'.format(char, count))
+    for i_elem in stats:
+        print('|{: ^9}|{: ^9}|'.format(i_elem[0], i_elem[1]))
     print('+{:-^19}+'.format('+'))
 
 
+# def sort_by_frequency(stats_dict):
+#     sorted_values = sorted(stats_dict.values())
+#     sorted_dict = collections.OrderedDict()
+#     for i_value in sorted_values:
+#         for j_key in stats_dict.keys():
+#             if stats_dict[j_key] == i_value:
+#                 sorted_dict[j_key] = stats_dict[j_key]
+#
+#     return sorted_dict
 def sort_by_frequency(stats_dict):
-    sorted_values = sorted(stats_dict.values())
-    sorted_dict = collections.OrderedDict()
-    for i_value in sorted_values:
-        for j_key in stats_dict.keys():
-            if stats_dict[j_key] == i_value:
-                sorted_dict[j_key] = stats_dict[j_key]
-
-    return sorted_dict
-
-
-# TODO, с помощью lambda функций сортировку можно реализовать в одну строку.
-#  Давайте попробуем https://pythoner.name/sortdict.
-#  Но сначала, необходимо привести словарь к списку =)
+    lst_dict = list(stats_dict.items())
+    lst_dict.sort(key=lambda i:i[1])
+    return lst_dict
 
 file_name = 'voyna-i-mir.zip'
 stats = collect_stats(file_name)
 stats = sort_by_frequency(stats)
 print_stats(stats)
+
