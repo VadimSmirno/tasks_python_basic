@@ -1,46 +1,54 @@
 import collections
 import zipfile
 
-def upzip (archive):
-    zfile = zipfile.ZipFile(archive,'r')
+
+def upzip(archive):
+    zfile = zipfile.ZipFile(archive, 'r')
     for i_file_name in zfile.namelist():
         zfile.extract(i_file_name)
     zfile.close()
 
-def collect_stats (file_name):
+
+def collect_stats(file_name):
     result = {}
     if file_name.endswith('.zip'):
         upzip(file_name)
-        file_name = ''.join((file_name[:-3],'txt'))
-    text_file = open (file_name, 'r', encoding='utf-8')
+        file_name = ''.join((file_name[:-3], 'txt'))
+    text_file = open(file_name, 'r', encoding='utf-8')
     for i_line in text_file:
         for j_char in i_line:
             if j_char.isalpha():
                 if j_char not in result:
                     result[j_char] = 0
-                result [j_char] += 1
+                result[j_char] += 1
     text_file.close()
 
-    return  result
+    return result
 
 
-def print_stats (stats):
-    print ('+{:-^19}+'.format('+'))
-    print ('|{: ^9}|{: ^9}|'.format('Буква','Частота'))
-    print ('+{:-^19}+'.format('+'))
+def print_stats(stats):
+    print('+{:-^19}+'.format('+'))
+    print('|{: ^9}|{: ^9}|'.format('Буква', 'Частота'))
+    print('+{:-^19}+'.format('+'))
     for char, count in stats.items():
-        print ('|{: ^9}|{: ^9}|'.format(char,count))
-    print  ('+{:-^19}+'.format('+'))
+        print('|{: ^9}|{: ^9}|'.format(char, count))
+    print('+{:-^19}+'.format('+'))
 
-def sort_by_frequency (stats_dict):
+
+def sort_by_frequency(stats_dict):
     sorted_values = sorted(stats_dict.values())
     sorted_dict = collections.OrderedDict()
     for i_value in sorted_values:
         for j_key in stats_dict.keys():
             if stats_dict[j_key] == i_value:
-                sorted_dict [j_key] = stats_dict[j_key]
+                sorted_dict[j_key] = stats_dict[j_key]
 
-    return  sorted_dict
+    return sorted_dict
+
+
+# TODO, с помощью lambda функций сортировку можно реализовать в одну строку.
+#  Давайте попробуем https://pythoner.name/sortdict.
+#  Но сначала, необходимо привести словарь к списку =)
 
 file_name = 'voyna-i-mir.zip'
 stats = collect_stats(file_name)
