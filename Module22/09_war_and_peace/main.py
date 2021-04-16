@@ -46,11 +46,13 @@ def print_stats(stats):
 #     return sorted_dict
 def sort_by_frequency(stats_dict):
     lst_dict = list(stats_dict.items())
-    lst_dict.sort(key=lambda i:i[1])
+    lst_dict.sort(key=lambda i: i[1])
     return lst_dict
+
 
 file_name = 'voyna-i-mir.zip'
 stats = collect_stats(file_name)
 stats = sort_by_frequency(stats)
 print_stats(stats)
 
+# зачёт!

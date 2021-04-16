@@ -28,9 +28,9 @@ for i_elem in result:
     data = f'{i_elem[0]} {str(i_elem[1])}\n'
     analysis.write(data)
 
-
 analysis = open('analysis.txt', 'r')
 print('Содержимое файла analysis.txt:\n' + analysis.read())
 text.close()
 analysis.close()
 
+# зачёт!
