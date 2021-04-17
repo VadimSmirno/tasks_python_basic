@@ -11,3 +11,4 @@ faile_number.close()
 answer.close()
 
 # зачёт!
+# зачёт!
