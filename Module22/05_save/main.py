@@ -8,8 +8,8 @@ while True:
 
     print('Куда хотите сохранить документ? Введите последовательность папок (через пробел):')
     way = '\\'.join(input('').split())
-    file_name = input((f'Введите имя файла: \n'))
-
+    file_name1 = input((f'Введите имя файла: \n'))
+    file_name = f'{file_name1}.txt'
     abs_path = os.path.abspath(os.path.join(os.path.sep,way,file_name))
     print(abs_path)
     check_file = os.path.exists(abs_path)
@@ -20,13 +20,12 @@ while True:
 if check_file:
     ans_q = input(f'Вы действительно хотите перезаписать файл? \n')
     if ans_q == 'да':
-        # TODO, таким образом, файл сохраняется в текущую директорию проекта, предлагаю попробовать сохранять в abs_path.
-        file_write(file_name)
+        file_write(abs_path)
         print(f'Файл успешно перезаписан!')
     else:
         print(f'Data is not record')
 else:
-    file_write(file_name)
+    file_write(abs_path)
     print(f'Файл успешно сохранён!')
 
 
