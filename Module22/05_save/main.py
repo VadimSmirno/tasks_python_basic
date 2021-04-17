@@ -1,7 +1,11 @@
-import  os
+import os
+
+
 def file_write(file_name):
     with open(file_name, 'w') as file_object:
         file_object.write(text)
+
+
 text = input('Введите строку: ')
 
 while True:
@@ -10,7 +14,7 @@ while True:
     way = '\\'.join(input('').split())
     file_name1 = input((f'Введите имя файла: \n'))
     file_name = f'{file_name1}.txt'
-    abs_path = os.path.abspath(os.path.join(os.path.sep,way,file_name))
+    abs_path = os.path.abspath(os.path.join(os.path.sep, way, file_name))
     print(abs_path)
     check_file = os.path.exists(abs_path)
     print(check_file)
@@ -28,7 +32,4 @@ else:
     file_write(abs_path)
     print(f'Файл успешно сохранён!')
 
-
-
-
-
+# зачёт!
