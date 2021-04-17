@@ -1,6 +1,5 @@
 import  os
-def file_write():
-    # TODO, функция должна принимать на вход название файла, в который будет записывать данные.
+def file_write(file_name):
     with open(file_name, 'w') as file_object:
         file_object.write(text)
 text = input('Введите строку: ')
@@ -22,12 +21,12 @@ if check_file:
     ans_q = input(f'Вы действительно хотите перезаписать файл? \n')
     if ans_q == 'да':
 
-        file_write()
+        file_write(file_name)
         print(f'Файл успешно перезаписан!')
     else:
         print(f'Data is not record')
 else:
-    file_write()
+    file_write(file_name)
     print(f'Файл успешно сохранён!')
 
 
