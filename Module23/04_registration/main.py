@@ -10,11 +10,7 @@ def treatment(info):
         if int(info[2]) < 10 or int(info[2]) > 99:
             raise ValueError
 
-    except ValueError:
-        return 1
-    except NameError:
-        return 1
-    except SyntaxError:
+    except (ValueError,NameError,SyntaxError):
         return 1
     else:
         return 0
