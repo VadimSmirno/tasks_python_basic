@@ -8,10 +8,13 @@ count = 0
 try:
     with open('people.txt','r',encoding='UTF-8') as file_people:
         for i_sym in file_people:
+            # TODO, убрать лишний символ в строке поможет rstrip() =)
             count += 1
             line = len(i_sym)
             if i_sym.endswith('\n'):
                 line -= 1
+
+            # TODO, было бы немного логичней строку с проверкой тоже убрать в блок try =)
             if line < 3:
                 try:
                     raise BaseException

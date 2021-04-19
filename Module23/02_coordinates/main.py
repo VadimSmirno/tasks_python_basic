@@ -15,7 +15,10 @@ def f2(x, y):
 try:
     file = open('coordinates.txt', 'r')
     for line in file:
+        # TODO, предлагаю создавать сразу 2 переменные. Пример
+        #  a, b = [1, 2]
         nums_list = line.split()
+        # TODO, ловить ошибки в наших функциях необходимо в цикле for.
         res1 = f(int(nums_list[0]), int(nums_list[1]))
 
         res2 = f2(int(nums_list[0]), int(nums_list[1]))
