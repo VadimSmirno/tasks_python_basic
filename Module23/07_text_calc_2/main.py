@@ -1,3 +1,5 @@
+# TODO, к 05 заданию актуальны и в этом.
+
 def define_sig (sig,num1,num2):
     if sig in ['+','-','/','*','//','%']:
         if sig == '+':
