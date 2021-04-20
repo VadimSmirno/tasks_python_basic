@@ -14,19 +14,23 @@ def f2(x, y):
 
 try:
     file = open('coordinates.txt', 'r')
-    for line in file:
-        # TODO, предлагаю создавать сразу 2 переменные. Пример
-        #  a, b = [1, 2]
-        nums_list = line.split()
-        # TODO, ловить ошибки в наших функциях необходимо в цикле for.
-        res1 = f(int(nums_list[0]), int(nums_list[1]))
 
-        res2 = f2(int(nums_list[0]), int(nums_list[1]))
+    for line in file:
+        value_one,value_two = line.split()
+        res1 = 0
+        res2 =0
+
+        try:
+            res1 = f(int(value_one), int(value_two))
+            res2 = f2(int(value_one), int(value_two))
+        except Exception:
+            print('Ошибка в функции')
 
         number = random.randint(0, 100)
         file_2 = open('result.txt', 'w')
-        my_list = sorted([res1, res2, number])
+        my_list = sorted([str(res1), str(res2), str(number)])
         file_2.write(' '.join(my_list))
+
 
 except Exception:
      print ("Что-то пошло не так ")

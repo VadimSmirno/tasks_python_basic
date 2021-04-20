@@ -7,7 +7,8 @@ while summ_number < 777:
     file.write(f'{str(number)}\n')
     count += 1
     if count == 13:
-        raise print('Ошибка') # TODO, правильней было бы вызывать именно исключение, к примеру Except("текст ошибки")
+        raise Exception ('Ошибка, куда разогнался?')
 
 file2 = open('num.txt','r')
 print (file2.read())
+file2.close()
