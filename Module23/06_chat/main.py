@@ -13,3 +13,5 @@ while True:
         new_massages = input('Введите сообщение: ')
         with  open('chat.txt', 'a') as file:
             file.write(f'{name} : {new_massages}')
+            # TODO, при записи данных в файл предлагаю добавить "\n"
+            #  Таким образом, каждая новая запись будет в файле с новой строки =)

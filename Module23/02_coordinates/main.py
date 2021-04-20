@@ -1,10 +1,10 @@
 import random
 
+
 def f(x, y):
     x += random.randint(0, 10)
     y += random.randint(0, 5)
     return x / y
-
 
 
 def f2(x, y):
@@ -12,13 +12,14 @@ def f2(x, y):
     y -= random.randint(0, 5)
     return y / x
 
+
 try:
     file = open('coordinates.txt', 'r')
 
     for line in file:
-        value_one,value_two = line.split()
+        value_one, value_two = line.split()
         res1 = 0
-        res2 =0
+        res2 = 0
 
         try:
             res1 = f(int(value_one), int(value_two))
@@ -33,8 +34,9 @@ try:
 
 
 except Exception:
-     print ("Что-то пошло не так ")
+    print("Что-то пошло не так ")
 finally:
     file.close()
     file_2.close()
 
+# зачёт!

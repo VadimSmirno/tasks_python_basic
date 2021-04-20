@@ -18,6 +18,9 @@ def treatment(sig,num1,num2,lst):
 
     if len(lst) != 3:
         raise Exception
+        # TODO, предлагаю дописать при вызове ошибки нужный текст
+        #  Пример Exception("Текст ошибки")
+        #  В таком случае, сможем ловить ошибки группой =)
     elif sig not in ['+', '-', '/', '*', '//', '%']:
         raise ArithmeticError
     elif not num1.isdigit() or not num2.isdigit():
@@ -27,6 +30,8 @@ sum_result = 0
 calc = open('calc.txt', 'r')
 count = 0
 for i_elem in calc:
+    # TODO, можно сразу создать 3 переменные, без применения индексов
+    #  Пример a, b, c = [1, 2, 3]
     lst = i_elem.split()
     count += 1
     try:
@@ -37,6 +42,7 @@ for i_elem in calc:
 
         treatment(sig,num1,num2,lst)
         sum_result += define_sig(sig,int(num1),int(num2))
+    # TODO, предлагаю попробовать ловить ошибки группой =)
     except ZeroDivisionError:
         print(f'Ошибка в {count} строке, на ноль делить нельзя')
     except ArithmeticError:

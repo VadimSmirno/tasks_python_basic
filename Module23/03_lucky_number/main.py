@@ -7,10 +7,12 @@ while summ_number < 777:
     summ_number += number
     file = open('num.txt', 'a')
     file.write(f'{str(number)}\n')
-    number = random.randint(1,13)
+    number = random.randint(1, 13)
     if number == 13:
-        raise Exception ('Ошибка, куда разогнался?')
+        raise Exception('Ошибка, куда разогнался?')
 
-file2 = open('num.txt','r')
-print (file2.read())
+file2 = open('num.txt', 'r')
+print(file2.read())
 file2.close()
+
+# зачёт!

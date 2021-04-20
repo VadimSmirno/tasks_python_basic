@@ -15,7 +15,7 @@ def define_sig(sig, num1, num2):
         return num1 % num2
 
 def treatment(sig,num1,num2,lst):
-
+    # TODO, предлагаю вызывать ошибки по аналогии с 05 задание =)
     if len(lst) != 3 \
             or sig not in ['+', '-', '/', '*', '//', '%'] \
             or not num1.isdigit() \
