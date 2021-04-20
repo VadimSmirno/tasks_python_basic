@@ -1,54 +1,49 @@
 def define_sig(sig, num1, num2):
-    # TODO, в этой функции стоит только производить действия.
-    #  Вызывать исключения не нужно =)
-    if sig in ['+', '-', '/', '*', '//', '%']:
-        # TODO, возможно, стоит заменить большую часть if на elif.
-        #  Ведь символ не может быть сразу и "+" и "-" =)
-        if sig == '+':
-            return num1 + num2
-        if sig == '-':
-            return num1 - num2
-        if sig == '*':
-            return num1 * num2
-        if sig == '/':
-            return num1 / num2
-        if sig == '//':
-            return num1 // num2
-        if sig == '%':
-            return num1 % num2
-    else:
-        raise ArithmeticError
+
+    if sig == '+':
+        return num1 + num2
+    elif sig == '-':
+        return num1 - num2
+    elif sig == '*':
+        return num1 * num2
+    elif sig == '/':
+        return num1 / num2
+    elif sig == '//':
+        return num1 // num2
+    elif sig == '%':
+        return num1 % num2
 
 
-def treatment(line):
-    # TODO, функция не должна ничего возвращать, только проверять =)
-    #  Если числа не являются числами, то вызываем исключение.
-    #  Если математический символ не входит в список ['+', '-', '/', '*', '//', '%'], вызываем исключение.
-    lst = line.split()
-    num1 = int(lst[0])
-    sig = lst[1]
-    num2 = int(lst[2])
+def treatment(sig,num1,num2,lst):
+
     if len(lst) != 3:
         raise Exception
-    return define_sig(sig, num1, num2)
-
+    elif sig not in ['+', '-', '/', '*', '//', '%']:
+        raise ArithmeticError
+    elif not num1.isdigit() or not num2.isdigit():
+        raise TypeError
 
 sum_result = 0
-result = 0
-caic = open('calc.txt', 'r')
+calc = open('calc.txt', 'r')
 count = 0
-for i_elem in caic:
+for i_elem in calc:
+    lst = i_elem.split()
     count += 1
     try:
-        # TODO, предлагаю просто запускать 2 функции подряд, без ссылки одной функции на другую
-        sum_result += treatment(i_elem)
+        num1 = lst[0]
+        sig = lst[1]
+        num2 = lst[2]
+
+
+        treatment(sig,num1,num2,lst)
+        sum_result += define_sig(sig,int(num1),int(num2))
     except ZeroDivisionError:
         print(f'Ошибка в {count} строке, на ноль делить нельзя')
     except ArithmeticError:
         print(f'Ошибка в {count} строке не арифметический знак')
+    except TypeError:
+        print (f'Ошибка в {count} строке символ не является числом')
     except Exception:
         print(f'Ошибка в {count} строке')
-
 print(sum_result)
-
-caic.close()
+calc.close()

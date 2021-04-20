@@ -1,3 +1,5 @@
+import random
+
 summ_number = 0
 count = 0
 while summ_number < 777:
@@ -5,10 +7,8 @@ while summ_number < 777:
     summ_number += number
     file = open('num.txt', 'a')
     file.write(f'{str(number)}\n')
-    count += 1
-    # TODO, необходимо воспользоваться модулем random.
-    #  Ошибка должна выпасть с шансом 1 к 13. Значит, нам необходимо получить число от 1 до 13 и уже его проверить на равенство 13 =)
-    if count == 13:
+    number = random.randint(1,13)
+    if number == 13:
         raise Exception ('Ошибка, куда разогнался?')
 
 file2 = open('num.txt','r')

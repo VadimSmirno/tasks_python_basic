@@ -35,9 +35,6 @@ try:
 except Exception:
      print ("Что-то пошло не так ")
 finally:
-    # TODO, открывать файлы повторно не нужно. Необходимо только закрыть их в конце работы программы.
-    file = open('coordinates.txt', 'r')
-    file_2 = open('result.txt', 'w')
     file.close()
     file_2.close()
 
