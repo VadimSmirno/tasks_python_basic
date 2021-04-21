@@ -22,6 +22,7 @@ def treatment(sig, num1, num2, lst):
         raise TypeError('символы не являются числом')
 
 
+
 sum_result = 0
 calc = open('calc.txt', 'r')
 count = 0
@@ -32,10 +33,8 @@ for i_elem in calc:
         num1, sig, num2 = lst
         treatment(sig, num1, num2, lst)
         sum_result += define_sig(sig, int(num1), int(num2))
-    # TODO, предлагаю ловить ошибки группой (ArithmeticError, Exception, TypeError)
-    #  Возможно, вместо Exception стоит вызывать другую ошибку =) К примеру ValueError.
-    #  Т.к. Exception перехватывает остальные ошибки и точно понять не сможем, что конкретно произошло.
-    except Exception:  # TODO, предлагаю добавить "as err" и выводить ошибку тоже, вместе со строкой
-        print(f'Ошибка в {count} строке')
+
+    except (ArithmeticError, Exception, TypeError) as err:
+        print(f'Ошибка в {count} строке {err}')
 print(sum_result)
 calc.close()

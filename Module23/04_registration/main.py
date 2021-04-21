@@ -21,10 +21,11 @@ for i_sym in file:
         with open('registrations_good.log', 'a') as reg_good:
             reg_good.write(i_sym)
 
-    except Exception:  # TODO, предлагаю добавить "as err" и записывать ошибку тоже, вместе со строкой
-        print ('{}    - Этот email отправляется в bag'.format(i_sym.rstrip('\n')))
+    except Exception as err:
+        print ('{}    - Этот email отправляется в bag   {}'.format(i_sym.rstrip('\n'),err))
+
         with open('registrations_bad.log', 'a') as reg_bag:
-            reg_bag.write(f'{i_sym} email не подходит по указанным параметрам')  # TODO, стоит добавить перенос строки при записи в файл =)
+            reg_bag.write('{} email не подходит по указанным параметрам  {}\n'.format(i_sym.rstrip('\n'),err))
 
 
 file.close()
