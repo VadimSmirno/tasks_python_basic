@@ -24,7 +24,7 @@ for i_sym in file:
     except Exception:
         print ('{}    - Этот email отправляется в bag'.format(i_sym.rstrip('\n')))
         with open('registrations_bad.log', 'a') as reg_bag:
-            reg_bag.write(i_sym) # TODo, предлагаю дать синоним нашей ошибки и записывать не только строку, но и ошибку =)
+            reg_bag.write(f'{i_sym} email не подходит по указанным параметрам')
 
 
 file.close()

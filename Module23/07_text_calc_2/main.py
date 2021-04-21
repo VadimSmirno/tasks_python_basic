@@ -15,12 +15,11 @@ def define_sig(sig, num1, num2):
         return num1 % num2
 
 def treatment(sig,num1,num2,lst):
-    # TODO, предлагаю вызывать ошибки по аналогии с 05 задание =)
     if len(lst) != 3 \
             or sig not in ['+', '-', '/', '*', '//', '%'] \
             or not num1.isdigit() \
             or not num2.isdigit():
-        raise Exception
+        raise Exception ('Строка не соответствует требованиям')
 
 sum_result = 0
 result = 0
@@ -30,9 +29,7 @@ for i_elem in calc:
     lst = i_elem.split()
     count += 1
     try:
-        num1 = lst[0]
-        sig = lst[1]
-        num2 = lst[2]
+        num1,sig,num2 = lst
         treatment(sig, num1, num2, lst)
         sum_result += define_sig(sig, int(num1), int(num2))
     except Exception:
