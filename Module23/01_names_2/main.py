@@ -27,3 +27,4 @@ finally:
     print('Сумма символов', summ_symbol)
 
 # зачёт!
+# зачёт!
