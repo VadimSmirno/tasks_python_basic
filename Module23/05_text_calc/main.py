@@ -22,7 +22,6 @@ def treatment(sig, num1, num2, lst):
         raise TypeError('символы не являются числом')
 
 
-
 sum_result = 0
 calc = open('calc.txt', 'r')
 count = 0
@@ -38,3 +37,5 @@ for i_elem in calc:
         print(f'Ошибка в {count} строке {err}')
 print(sum_result)
 calc.close()
+
+# зачёт!
