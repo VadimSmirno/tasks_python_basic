@@ -12,9 +12,13 @@ class Parents:
             print(i_children, end=' ')
 
     def calm_the_child(self):
+        # TODO, необходимо принимать на вход объект класса Children.
+        #  Проверять уровень его спокойствия и изменять, если требуется.
         print('Ребенок успокоился')
 
     def feed_the_baby(self):
+        # TODO, необходимо принимать на вход объект класса Children.
+        #  Проверять уровень его голода и изменять, если требуется.
         print ('Ребенок покормлен')
 
 
@@ -28,12 +32,16 @@ class Children:
 
 
     def calmness(self):
+        # TODO, в данном методе, к родителю обращаться не нужно =)
+        #  Можно возвращать True или False, если обеспокоен.
         if self.calmness == 'Нет':
             perens.calm_the_child()
 
 
 
     def  hunger(self):
+        # TODO, в данном методе, к родителю обращаться не нужно.
+        #  Можно возвращать True или False, если голоден.
         if self.hunger == 'Нет':
             perens.feed_the_baby()
 

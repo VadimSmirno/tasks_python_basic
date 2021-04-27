@@ -8,6 +8,9 @@ class Warrior:
 
     def print_info(self,name):
         if not isinstance(name, Warrior):
+            # TODO, стоит переименовать name. Это ведь "другой воин"?
+            # TODO, стоит поправить условие.
+            #  Если "другой воин" является Warrior, то стоит отнимать health у него.
             self.health -= 20
 
         print (f'Бьет {self.name} у противника осталось здоровья {self.health}')
