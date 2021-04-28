@@ -11,15 +11,16 @@ class Parents:
         for i_children in self.list_children:
             print(i_children, end=' ')
 
-    def calm_the_child(self):
-        # TODO, необходимо принимать на вход объект класса Children.
-        #  Проверять уровень его спокойствия и изменять, если требуется.
-        print('Ребенок успокоился')
+    def calm_the_child(self,children):
+        if children.calmness == True:
+            print('Ребенок успокоился')
+            return children.calmness == False
 
-    def feed_the_baby(self):
-        # TODO, необходимо принимать на вход объект класса Children.
-        #  Проверять уровень его голода и изменять, если требуется.
-        print ('Ребенок покормлен')
+
+    def feed_the_baby(self,children):
+        if children.hunger() == True:
+            print('Ребенок покормлен')
+            return children.hunger == False
 
 
 class Children:
@@ -32,22 +33,19 @@ class Children:
 
 
     def calmness(self):
-        # TODO, в данном методе, к родителю обращаться не нужно =)
-        #  Можно возвращать True или False, если обеспокоен.
-        if self.calmness == 'Нет':
-            perens.calm_the_child()
-
-
+        if self.calmness == 'Да':
+            return True
+        return False
 
     def  hunger(self):
-        # TODO, в данном методе, к родителю обращаться не нужно.
-        #  Можно возвращать True или False, если голоден.
-        if self.hunger == 'Нет':
-            perens.feed_the_baby()
+        if self.hunger == 'Да':
+            return True
+        return False
+
 
 
 perens = Parents('Коля', 31, ['Ваня','Лиза'])
 perens2 = Parents('Маша', 27, ['Ваня','Лиза'])
 children1 = Children('Ваня', 1, 'Да','Нет')
 children2 = Children('Лиза', 2, 'Нет','Нет')
-children2.hunger()
+children1.hunger()

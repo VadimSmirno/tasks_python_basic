@@ -1,16 +1,21 @@
 import random
 
-
 class Student:
+
+    students = []
 
     def __init__(self, name, number_grupp, school_performance):
         self.name = name
         self.number_grupp = number_grupp
         self.school_performance = school_performance
-        self.students = []
 
-        # TODO, вывод стоит вынести в отдельный метод.
-        print(f'{name} из группы № {number_grupp}: оценки за 5 предметов: {school_performance}')
+
+
+    def print_info(self):
+        print(f'{self.name} из группы № {self.number_grupp}: оценки за 5 предметов: {self.school_performance}')
+
+    def add_student(self,name, number_grupp, school_performance):
+        self.students.append([name,number_grupp,sum(school_performance)/5])
 
 
 people = ['Дмитрий', 'Максим', 'Сергей', 'Андрей', 'Алексей', 'Артём', 'Илья', 'Кирилл', 'Михаил', 'Никита']
@@ -18,5 +23,11 @@ people = ['Дмитрий', 'Максим', 'Сергей', 'Андрей', 'А�
 for i_name in people:
     name, number_grupp, school_performance = i_name, random.randint(1, 10), [random.randint(1, 5) for _ in range(5)]
     student = Student(name, number_grupp, school_performance)
+    student.add_student(name, number_grupp, school_performance)
 
-# TODO, стоит создать список студентов чтобы потом отсортировать его как раньше мы сортировали список из списков =)
+
+lst = (student.students)
+
+sort_lst = sorted(lst,key=lambda k : k[2])
+for i_info in sort_lst:
+    print (f'Студент {i_info[0]} учится в группе № {i_info[1]}, средний бал по успеваемости: {i_info[2]}')
