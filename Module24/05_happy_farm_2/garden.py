@@ -39,3 +39,20 @@ class PotetoGarden:
 
         else:
             print ('Вся картошка созрела, можно собирать\n')
+
+class Garden:
+
+    def __init__(self,name):
+        self.name = name
+        # Грядку с растением, за которым он ухаживает (в нашем случае пока только грядка с картошкой)????
+
+    def look_after(self):
+
+        if Potesto.is_ripe:
+            print('Собираю картошку')
+
+
+    def harvest(self):
+        lst_poteto = []
+        # Как собирать урожай?
+

@@ -1,4 +1,5 @@
 from garden import PotetoGarden
+from garden import Garden
 
 my_garden = PotetoGarden(5)
 my_garden.are_all_ripe()
