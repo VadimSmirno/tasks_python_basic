@@ -18,16 +18,12 @@ class Circle:
     def big_circle(self, coefficient):
         return math.pi * self.radius ** 2 * coefficient
 
-    # TODO, метод должен принимать на вход параметр - другой круг и далее, в коде работать с ним.
-    #  про переменные сircle2 и сircle1 класс по идее ничего не знает.
-    #  Если их не создать, получим ошибку.
-    #  Класс должен работать со своими аргументами и аргументами того объекта, который передаём в метод crossing
-    def crossing(self):
-        if isinstance(сircle2 and сircle1, Circle):
-            d = math.sqrt((сircle1.x - сircle2.x) ** 2 + (сircle1.y - сircle2.y) ** 2)
-            if d > (сircle1.radius + сircle2.radius) or 0 < d < math.fabs(сircle1.radius - сircle1.radius):
+    def crossing(self,circle2,circle1):
+        if isinstance(circle2 and circle1, Circle):
+            d = math.sqrt((circle1.x - circle2.x) ** 2 + (circle1.y - circle2.y) ** 2)
+            if d > (circle1.radius + circle2.radius) or 0 < d < math.fabs(circle1.radius - circle1.radius):
                 print('общих точек нет')
-            elif d == (сircle1.radius + сircle2.radius) or d == math.fabs(сircle1.radius - сircle1.radius):
+            elif d == (circle1.radius + circle2.radius) or d == math.fabs(circle1.radius - circle1.radius):
                 print('Есть одна общая точка')
             else:
                 print('Есть две общие точки')
@@ -35,8 +31,8 @@ class Circle:
 
 coefficient = int(input('Во сколько раз увеличить круг '))
 
-сircle1 = Circle(1, 2, 2)
-сircle2 = Circle(20, 40, 1)
-print(сircle1.perimeter())
-print(сircle1.big_circle(coefficient))
-сircle1.crossing()
+circle1 = Circle(1, 2, 2)
+circle2 = Circle(20, 40, 1)
+print(circle1.perimeter())
+print(circle1.big_circle(coefficient))
+circle1.crossing(circle1,circle2)
