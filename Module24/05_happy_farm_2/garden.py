@@ -1,7 +1,12 @@
 class Potesto:
-    states = {0: 'Отсутствует', 1: 'Росток',2:'Зеленая',3:'Зрелая'}
+    states = {0: 'Отсутствует', 1: 'Росток', 2: 'Зеленая', 3: 'Зрелая'}
 
-    def __init__(self,index):
+    # TODO, пожалуйста, обратите внимание, states без self это элемент доступный всем объектам класса.
+    #  self.states это элемент только для текущего объекта класса.
+    #  И к одному и второму элементу необходимо обращаться через self.states
+    #  Предлагаю один из states переименовать.
+
+    def __init__(self, index):
         self.index = index
         self.states = 0
 
@@ -15,16 +20,14 @@ class Potesto:
             return True
         return False
 
-
     def print_stets(self):
-        print (f'Картошка {self.index} сейчас {self.states}')
-
+        print(f'Картошка {self.index} сейчас {self.states}')
 
 
 class PotetoGarden:
 
     def __init__(self, count):
-        self.potetoes = [Potesto(index) for index in range(1,count+1)]
+        self.potetoes = [Potesto(index) for index in range(1, count + 1)]
 
     def grow_al(self):
         print('Картошка прорастает')
@@ -38,21 +41,23 @@ class PotetoGarden:
                 break
 
         else:
-            print ('Вся картошка созрела, можно собирать\n')
+            print('Вся картошка созрела, можно собирать\n')
+
 
 class Garden:
 
-    def __init__(self,name):
+    def __init__(self, name):
         self.name = name
+        # TODO, одну картошку в грядку мы передавали бы так Potesto(index)
+        #  По идее, необходимо создать аргумент с self и присвоить ему по такому же принципу грядку,
+        #  но вместо index указать числовое значение. Ведь оно отвечает за количество картошек
         # Грядку с растением, за которым он ухаживает (в нашем случае пока только грядка с картошкой)????
 
     def look_after(self):
-
+        # TODO в этом методе необходимо обращаться к "своей" грядке.
         if Potesto.is_ripe:
             print('Собираю картошку')
-
 
     def harvest(self):
         lst_poteto = []
         # Как собирать урожай?
-

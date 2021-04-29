@@ -33,7 +33,6 @@ class Children:
     def calmness(self):
         return self.calmness == 'Да'
 
-
     def hunger(self):
         return self.hunger == 'Да'
 
@@ -43,3 +42,5 @@ perens2 = Parents('Маша', 27, ['Ваня', 'Лиза'])
 children1 = Children('Ваня', 1, 'Да', 'Нет')
 children2 = Children('Лиза', 2, 'Нет', 'Нет')
 perens.calm_the_child(children1)
+
+# зачёт!

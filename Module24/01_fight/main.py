@@ -7,13 +7,10 @@ class Warrior:
         self.name = name
         self.health = health
 
-
     def print_info(self, name_warrior):
-
         if isinstance(name_warrior, Warrior):
             name_warrior.health -= 20
             print(f'Бьет {self.name} у противника осталось здоровья {name_warrior.health}')
-
 
 
 warrior_1 = Warrior('Воин 1', 100)
@@ -30,3 +27,5 @@ else:
         print(f'\nПобедил {warrior_1.name}, у него осталось {warrior_1.health} едениц здоровья')
     else:
         print(f'\nПобедил {warrior_2.name}, у него осталось {warrior_2.health} едениц здоровья')
+
+# зачёт!

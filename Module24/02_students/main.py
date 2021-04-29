@@ -1,6 +1,6 @@
 import random
 
-students = []
+
 
 class Student:
 
@@ -15,6 +15,7 @@ class Student:
     # def add_student(self, name, number_grupp, school_performance):
     #     self.students.append([name, number_grupp, sum(school_performance) / 5])
 
+students = []
 
 people = ['Дмитрий', 'Максим', 'Сергей', 'Андрей', 'Алексей', 'Артём', 'Илья', 'Кирилл', 'Михаил', 'Никита']
 
@@ -22,6 +23,8 @@ for i_name in people:
     name, number_grupp, school_performance = i_name, random.randint(1, 10), [random.randint(1, 5) for _ in range(5)]
     # TODO, предлагаю создавать список для добавления студентов вне класса и добавлять в него сразу объекты класса Student()
     student = Student(name, number_grupp, school_performance)
+    # TODO, предлагаю передавать в список только student, остальные элементы передавать не нужно.
+    #  Мы сможем обратиться к ним через объект класса который будет в списке.
     students.append([student.name,student.number_grupp,sum(school_performance) / 5])
 
 print(students)

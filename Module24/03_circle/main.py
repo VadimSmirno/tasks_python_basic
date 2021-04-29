@@ -18,7 +18,10 @@ class Circle:
     def big_circle(self, coefficient):
         return math.pi * self.radius ** 2 * coefficient
 
-    def crossing(self,circle2,circle1):
+    # TODO, второй круг передавать в метод не нужно.
+    #  Предлагаю сравнивать со "своими" аргументами =)
+    #  через self.
+    def crossing(self, circle2, circle1):
         if isinstance(circle2 and circle1, Circle):
             d = math.sqrt((circle1.x - circle2.x) ** 2 + (circle1.y - circle2.y) ** 2)
             if d > (circle1.radius + circle2.radius) or 0 < d < math.fabs(circle1.radius - circle1.radius):
@@ -35,4 +38,4 @@ circle1 = Circle(1, 2, 2)
 circle2 = Circle(20, 40, 1)
 print(circle1.perimeter())
 print(circle1.big_circle(coefficient))
-circle1.crossing(circle1,circle2)
+circle1.crossing(circle1, circle2)
