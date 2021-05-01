@@ -24,7 +24,9 @@ class Air:
             return Lightning()  # молния
         elif isinstance(other, Earth):
             return Dust()  # пыль
-        # TODO, иначе, возвращаем None.
+        else:
+            return None
+
 
 
 class Fire:
@@ -47,32 +49,54 @@ class Earth:
 
 class Storm:
 
-    # TODO, стоит так же добавить метод __str__
+    def __str__(self):
+        return 'Шторм'
 
     def answer(self):
         return 'Вода + Воздух'
 
 
 class Steam:
+
+    def __str__(self):
+        return 'Пар'
+
     def answer(self):
         return 'Вода + Огонь'
 
 
 class Mud:
+
+    def __str__(self):
+        return 'Грязь'
+
     def answer(self):
         return 'Вода + Земля'
 
 
+
 class Lightning:
+
+    def __str__(self):
+        return 'Молния'
+
     def answer(self):
         return 'Воздух + Огонь'
 
 
 class Dust:
+
+    def __str__(self):
+        return 'Пыль'
+
     def answer(self):
         return 'Воздух + Земля'
 
 
 class Lava:
+
+    def __str__(self):
+        return 'Лава'
+
     def ansver(self):
         return 'Огонь + Земля'

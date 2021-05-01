@@ -1,5 +1,5 @@
 class Potesto:
-    states = {0: 'Отсутствует', 1: 'Росток', 2: 'Зеленая', 3: 'Зрелая'}
+    states_ripe = {0: 'Отсутствует', 1: 'Росток', 2: 'Зеленая', 3: 'Зрелая'}
 
     # TODO, пожалуйста, обратите внимание, states без self это элемент доступный всем объектам класса.
     #  self.states это элемент только для текущего объекта класса.
@@ -9,6 +9,7 @@ class Potesto:
     def __init__(self, index):
         self.index = index
         self.states = 0
+
 
     def grow(self):
         if self.states < 3:
@@ -46,8 +47,9 @@ class PotetoGarden:
 
 class Garden:
 
-    def __init__(self, name):
+    def __init__(self, name, ridge):
         self.name = name
+        self.ridge = Potesto(ridge)
         # TODO, одну картошку в грядку мы передавали бы так Potesto(index)
         #  По идее, необходимо создать аргумент с self и присвоить ему по такому же принципу грядку,
         #  но вместо index указать числовое значение. Ведь оно отвечает за количество картошек
@@ -55,6 +57,7 @@ class Garden:
 
     def look_after(self):
         # TODO в этом методе необходимо обращаться к "своей" грядке.
+        self.ridge
         if Potesto.is_ripe:
             print('Собираю картошку')
 
