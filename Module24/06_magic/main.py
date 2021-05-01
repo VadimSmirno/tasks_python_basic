@@ -11,6 +11,8 @@ class Water:
             return Steam()  # пар
         elif isinstance(other, Earth):
             return Mud()  # грязь
+        else:
+            return  None
 
 
 class Air:
@@ -100,3 +102,4 @@ class Lava:
 
     def ansver(self):
         return 'Огонь + Земля'
+
