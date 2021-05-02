@@ -1,3 +1,5 @@
+lst_poteto = []
+
 class Potesto:
     states_ripe = {0: 'Отсутствует', 1: 'Росток', 2: 'Зеленая', 3: 'Зрелая'}
 
@@ -22,7 +24,7 @@ class Potesto:
         return False
 
     def print_stets(self):
-        print(f'Картошка {self.index} сейчас {self.states}')
+        print(f'Картошка {self.index} сейчас {self.states_ripe[self.states]}')
 
 
 class PotetoGarden:
@@ -49,7 +51,7 @@ class Garden:
 
     def __init__(self, name, ridge):
         self.name = name
-        self.ridge = Potesto(ridge)
+        self.ridge = PotetoGarden(ridge)
         # TODO, таким образом в грядке будет только 1 картошка.
         #  Предлагаю передавать в грядку сразу грядку картошек.
         #  Грядка - это список объектов Potesto. И соответствует классу PotetoGarden.
@@ -62,10 +64,14 @@ class Garden:
 
     def look_after(self):
         # TODO в этом методе необходимо обращаться к "своей" грядке.
-        self.ridge
-        if Potesto.is_ripe:
-            print('Собираю картошку')
+        for i in self.ridge.potetoes:
+            i.states+=2
+            self.harvest(i.index, i.states_ripe[i.states])
+        print (f'{self.name} ухаживает за грядкой, картошка растет быстрее')
 
-    def harvest(self):
-        lst_poteto = []
-        # Как собирать урожай?
+
+
+
+    def harvest(self,num_poteyto,states):
+        lst_poteto.append((num_poteyto,states))
+        print (lst_poteto)

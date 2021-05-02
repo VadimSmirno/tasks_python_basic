@@ -20,10 +20,11 @@ class Water:
 
 class Air:
     """" Класс воздух """""
-
+    def __init__(self):
+        self.name = 'Воздух'
     # TODO, остальные классы тоже стоит поправить =)
     def __str__(self):
-        return 'Воздух'
+        return self.name
 
     def __add__(self, other):
         if isinstance(other, Fire):
@@ -36,9 +37,11 @@ class Air:
 
 class Fire:
     """" Класс огонь """""
+    def __init__(self):
+        self.name = 'Огонь'
 
     def __str__(self):
-        return 'Огонь'
+        return self.name
 
     def __add__(self, other):
         if isinstance(other, Earth):
@@ -48,14 +51,20 @@ class Fire:
 class Earth:
     """" Класс земля """""
 
+    def __init__(self):
+        self.name = 'Земля'
+
     def __str__(self):
-        return 'Земля'
+        return self.name
 
 
 class Storm:
 
+    def __init__(self):
+        self.name = 'Шторм'
+
     def __str__(self):
-        return 'Шторм'
+        return self.name
 
     def answer(self):
         return 'Вода + Воздух'
@@ -63,8 +72,11 @@ class Storm:
 
 class Steam:
 
+    def __init__(self):
+        self.name = 'Пар'
+
     def __str__(self):
-        return 'Пар'
+        return self.name
 
     def answer(self):
         return 'Вода + Огонь'
@@ -72,8 +84,11 @@ class Steam:
 
 class Mud:
 
+    def __init__(self):
+        self.name = 'Грязь'
+
     def __str__(self):
-        return 'Грязь'
+        return self.name
 
     def answer(self):
         return 'Вода + Земля'
@@ -81,8 +96,11 @@ class Mud:
 
 class Lightning:
 
+    def __init__(self):
+        self.name = 'Молния'
+
     def __str__(self):
-        return 'Молния'
+        return self.name
 
     def answer(self):
         return 'Воздух + Огонь'
@@ -90,8 +108,11 @@ class Lightning:
 
 class Dust:
 
+    def __init__(self):
+        self.name = 'Пыль'
+
     def __str__(self):
-        return 'Пыль'
+        return self.name
 
     def answer(self):
         return 'Воздух + Земля'
@@ -99,8 +120,11 @@ class Dust:
 
 class Lava:
 
+    def __init__(self):
+        self.name = 'Лава'
+
     def __str__(self):
-        return 'Лава'
+        return self.name
 
     def ansver(self):
         return 'Огонь + Земля'
