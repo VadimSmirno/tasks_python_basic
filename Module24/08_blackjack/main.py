@@ -8,9 +8,9 @@ class Card:
 
     def card_value(self):
         if self.rank in ['десять', 'валет','дама','король']:
-            return 10
+            return (10,self.rank)
         else:
-            return 'A23456789'.index(self.rank)
+            return ('A23456789'.index(self.rank)+1,self.rank)
 
     def get_rank(self):
         return self.rank
@@ -34,7 +34,7 @@ class Hand:
             if card.get_rank() == 'A':
                 aces += 1
             else:
-                result += int(card.card_value())
+                result += int(card.card_value()[0])
         if result + aces *10 <= 21:
             result += aces*10
         return result
@@ -47,11 +47,21 @@ class Deck:
         random.shuffle(self.cards)
 
 
+
+
     def deal_card(self):
         return  self.cards.pop()
 
+
+def card_hand(lst,name):
+    print('\nКакты на руках',name,end=' ')
+    for i_cards in lst:
+        print ( i_cards, end=' ')
+
+
 def game():
     deck = Deck()
+
 
     player_hand = Hand('Игрок')
     dealer_hand = Hand('Диллер')
@@ -59,17 +69,19 @@ def game():
     player_hand.add_cards(deck.deal_card())
     player_hand.add_cards(deck.deal_card())
     dealer_hand.add_cards(deck.deal_card())
-    print ( 'Очков у диллера',dealer_hand.get_value())
+    print ('Выпала карта:',dealer_hand.cards[0],',очков у диллера',dealer_hand.get_value())
     print()
-    print('Очков у Вас ',player_hand.get_value())
+    print('Выпали карты',player_hand.cards[0],'и',player_hand.cards[1],'Очков у Вас ',player_hand.get_value())
 
     flag = True
 
     while player_hand.get_value() < 21:
         answer = input('Еще? да/нет ')
         if answer == 'да':
+            count_pleyr = 2
             player_hand.add_cards(deck.deal_card())
-            print ('Очков у Вас ', player_hand.get_value())
+            print ('Выпала карта',player_hand.cards[count_pleyr],'очков у Вас ', player_hand.get_value())
+            count_pleyr +=1
             if player_hand.get_value() > 21:
                 print('У Вас перебор! диллер выиграл!')
                 flag = False
@@ -79,9 +91,10 @@ def game():
 
     if flag:
         while dealer_hand.get_value() < 17:
+            count_dealer = 1
             dealer_hand.add_cards(deck.deal_card())
-            print ('Очков у диллера', dealer_hand.get_value())
-
+            print ('Выпала карта',dealer_hand.cards[count_dealer],'Очков у диллера', dealer_hand.get_value())
+            count_dealer += 1
             if dealer_hand.get_value() > 21:
                 print ('У диллера перебор, Вы выиграли!')
                 flag = False
@@ -91,7 +104,8 @@ def game():
         else:
             print ('Диллер выиграл')
 
+    card_hand(dealer_hand.cards,'Диллера')
+    card_hand(player_hand.cards, 'Игрока')
+
 game()
 
-# TODO, интересно получилось! Будет здорово добавить вывод карт, на руках.
-#  Но не только у пользователя, но и у ПК, пока тестируем код =)
