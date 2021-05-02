@@ -4,7 +4,6 @@ class Water:
     def __init__(self):
         self.name = 'Вода'
 
-
     def __str__(self):
         return self.name
 
@@ -16,12 +15,13 @@ class Water:
         elif isinstance(other, Earth):
             return Mud()  # грязь
         else:
-            return  None
+            return None
 
 
 class Air:
     """" Класс воздух """""
 
+    # TODO, остальные классы тоже стоит поправить =)
     def __str__(self):
         return 'Воздух'
 
@@ -32,7 +32,6 @@ class Air:
             return Dust()  # пыль
         else:
             return None
-
 
 
 class Fire:
@@ -80,7 +79,6 @@ class Mud:
         return 'Вода + Земля'
 
 
-
 class Lightning:
 
     def __str__(self):
@@ -107,3 +105,5 @@ class Lava:
     def ansver(self):
         return 'Огонь + Земля'
 
+
+print(Water() + Air())

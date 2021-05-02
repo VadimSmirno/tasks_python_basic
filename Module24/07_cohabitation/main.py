@@ -5,11 +5,14 @@ import  random
 class People:
 
     def __init__(self,name ):
+        # TODO, стоит добавить аргумент "дом" изначально равный None
+        #  И метод, в котором будем присваивать дом человеку.
         self.name = name
         self.degree_hunger = 50
 
     def eat(self):
         """"Кушать"""""
+        # TODO, стоит добавить проверку, если денег нет, то не едим
         self.degree_hunger += 1
         eat = Hause()
         eat.refrigerator_food -= 1

@@ -18,7 +18,6 @@ class Circle:
     def big_circle(self, coefficient):
         return math.pi * self.radius ** 2 * coefficient
 
-
     def crossing(self, circle):
         if isinstance(circle, Circle):
 
@@ -37,3 +36,4 @@ circle1 = Circle(1, 2, 2)
 circle2 = Circle(2, 4, 3)
 circle1.crossing(circle2)
 
+# зачёт!
