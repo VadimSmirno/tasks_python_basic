@@ -1,5 +1,6 @@
 lst_poteto = []
 
+
 class Potesto:
     states_ripe = {0: 'Отсутствует', 1: 'Росток', 2: 'Зеленая', 3: 'Зрелая'}
 
@@ -11,7 +12,6 @@ class Potesto:
     def __init__(self, index):
         self.index = index
         self.states = 0
-
 
     def grow(self):
         if self.states < 3:
@@ -52,10 +52,9 @@ class Garden:
     def __init__(self, name, ridge):
         self.name = name
         self.ridge = PotetoGarden(ridge)
-        # TODO, таким образом в грядке будет только 1 картошка.
+        # , таким образом в грядке будет только 1 картошка.
         #  Предлагаю передавать в грядку сразу грядку картошек.
         #  Грядка - это список объектов Potesto. И соответствует классу PotetoGarden.
-
 
         # , одну картошку в грядку мы передавали бы так Potesto(index)
         #  По идее, необходимо создать аргумент с self и присвоить ему по такому же принципу грядку,
@@ -63,15 +62,18 @@ class Garden:
         # Грядку с растением, за которым он ухаживает (в нашем случае пока только грядка с картошкой)????
 
     def look_after(self):
-        # TODO в этом методе необходимо обращаться к "своей" грядке.
+        #  в этом методе необходимо обращаться к "своей" грядке.
+
+        # TODO, пожалуйста, поправьте название переменной "i", это ведь "картошка"? =)
         for i in self.ridge.potetoes:
-            i.states+=2
+            i.states += 2
+            # TODO, картошку стоить собирать, только если созрела. Верно?
+            #  В harvest предлагаю передавать только картошку. Внутри метода harvest мы можем обратиться
+            #  к любому аргументу переменной "i"
             self.harvest(i.index, i.states_ripe[i.states])
-        print (f'{self.name} ухаживает за грядкой, картошка растет быстрее')
+        print(f'{self.name} ухаживает за грядкой, картошка растет быстрее')
 
-
-
-
-    def harvest(self,num_poteyto,states):
-        lst_poteto.append((num_poteyto,states))
-        print (lst_poteto)
+    def harvest(self, num_poteyto, states):
+        lst_poteto.append((num_poteyto, states))
+        # TODO, если картошку собрали, то стоит убрать её с грядки.
+        print(lst_poteto)

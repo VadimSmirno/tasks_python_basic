@@ -20,9 +20,11 @@ class Water:
 
 class Air:
     """" Класс воздух """""
+
     def __init__(self):
         self.name = 'Воздух'
-    # TODO, остальные классы тоже стоит поправить =)
+
+    # , остальные классы тоже стоит поправить =)
     def __str__(self):
         return self.name
 
@@ -37,6 +39,7 @@ class Air:
 
 class Fire:
     """" Класс огонь """""
+
     def __init__(self):
         self.name = 'Огонь'
 
@@ -131,3 +134,5 @@ class Lava:
 
 
 print(Water() + Air())
+
+# зачёт!
