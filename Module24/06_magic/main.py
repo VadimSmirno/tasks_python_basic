@@ -1,13 +1,12 @@
 class Water:
     """"" Класс вода """""
 
+    def __init__(self):
+        self.name = 'Вода'
 
-    # TODO, в целом, решение верное!
-    #  Предлагаю создать метод init и определить в нём имя класса "Вода".
-    #  А в методе __str__ возвращать имя класса. =)
 
     def __str__(self):
-        return 'Вада'
+        return self.name
 
     def __add__(self, other):
         if isinstance(other, Air):

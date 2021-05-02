@@ -46,6 +46,7 @@ class Deck:
         self.cards = [Card(r) for r in ranks]
         random.shuffle(self.cards)
 
+
     def deal_card(self):
         return  self.cards.pop()
 
@@ -58,7 +59,7 @@ def game():
     player_hand.add_cards(deck.deal_card())
     player_hand.add_cards(deck.deal_card())
     dealer_hand.add_cards(deck.deal_card())
-    print ('Очков у диллера',dealer_hand.get_value())
+    print ( 'Очков у диллера',dealer_hand.get_value())
     print()
     print('Очков у Вас ',player_hand.get_value())
 
@@ -70,7 +71,7 @@ def game():
             player_hand.add_cards(deck.deal_card())
             print ('Очков у Вас ', player_hand.get_value())
             if player_hand.get_value() > 21:
-                print('У Вас перебор!')
+                print('У Вас перебор! диллер выиграл!')
                 flag = False
         else:
             print ('Себе')
@@ -82,11 +83,11 @@ def game():
             print ('Очков у диллера', dealer_hand.get_value())
 
             if dealer_hand.get_value() > 21:
-                print ('У диллера перебор')
+                print ('У диллера перебор, Вы выиграли!')
                 flag = False
     if flag:
         if player_hand.get_value() > dealer_hand.get_value():
-            print ('Вы ваиграли')
+            print ('Вы выиграли')
         else:
             print ('Диллер выиграл')
 
