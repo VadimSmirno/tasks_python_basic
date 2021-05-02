@@ -5,12 +5,15 @@ import  random
 class People:
 
     def __init__(self,name ):
-        # TODO, стоит добавить аргумент "дом" изначально равный None
+        # , стоит добавить аргумент "дом" изначально равный None
         #  И метод, в котором будем присваивать дом человеку.
         self.name = name
         self.degree_hunger = 50
         self.hause = None
 
+
+    # TODO, объект класса "дом" стоит создавать вне класса.
+    #  И передавать в этот метод, как аргумент
     def add_hause(self):
         """Присвоить дом человеку"""""
         self.hause = Hause()
@@ -18,7 +21,7 @@ class People:
 
     def eat(self):
         """"Кушать"""""
-        # TODO, стоит добавить проверку, если денег нет, то не едим
+        # , стоит добавить проверку, если денег нет, то не едим
 
         if self.hause.money > 0:
             self.degree_hunger += 1
@@ -39,6 +42,7 @@ class People:
 
     def Go_to_the_store_for_food(self):
         """""В магазин за едой"""""
+        # TODO , стоит добавить проверку, если денег нет, то не идём в магазин
 
         self.hause.money -= 1
         self.degree_hunger += 1
@@ -56,10 +60,16 @@ class Hause:
         self.money = 0
 
 people1 = People('Вася')
+
+# TODO, стоит создать "дом" и передать в метод add_hause
 people1.add_hause()
 count = 0
 while count < 365:
+    # TODO Стоит добавить метод "act" у человека и перенести в него логику жизни за 1 день.
+    #  Таким образом, сократим количество кода вне класса и в текущем цикле будем запускать только 1 метод.
     cub = random.randint(1, 6)
+
+
     if people1.degree_hunger < 20:
         people1.eat()
     elif Hause().refrigerator_food < 50:
