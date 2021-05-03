@@ -66,5 +66,5 @@ class Garden:
         #  При помощи какого спискового метода можно удалить конкретный элемент списка?
         # TODO, в целом, идея интересная. Предлагаю попробовать удалять методом remove.
         #  В таком случае, аргумент index у картошки получится лишним
-        self.ridge.potetoes.pop(num_poteyto.index)
+        self.ridge.potetoes.remove(num_poteyto)
         print(lst_poteto)

@@ -16,25 +16,25 @@ class People:
 
     def act(self):
 
-        count = 0
+
         # TODO, цикл while стоит реализовать вне класса.
         #  Метод act должен отвечать только за 1 день жизни человека.
-        while count < 365:
-            cub = random.randint(1, 2)
+
+        cub = random.randint(1, 2)
             # TODO, класс People ничего не знает про переменную people1 т.к. она создаётся вне класса.
             #  И не должен! =) Предлагаю обращаться к "своим" аргументам.
-            if people1.degree_hunger < 20:
+        if self.degree_hunger < 20:
                 people1.eat()
-            elif cub == 1:
-                people1.work()
-            elif cub == 2:
-                people1.eat()
-            else:
-                people1.pley()
-            count += 1
-            if people1.degree_hunger < 0:
-                print('Человек умер от голода')
-                break
+        elif cub == 1:
+            self.work()
+        elif cub == 2:
+            self.eat()
+        else:
+            self.pley()
+
+        if self.degree_hunger < 0:
+            print('Человек умер от голода')
+
 
 
 
@@ -84,4 +84,7 @@ hause = Hause()
 people1.add_hause(hause)
 people1.act()
 
-
+count = 0
+while count < 365:
+    people1.act()
+    count += 1
