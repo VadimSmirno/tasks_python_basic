@@ -13,7 +13,7 @@ class Card:
             return ('A23456789'.index(self.rank) + 1, self.rank)
 
 
-    # TODO, метод get_rank дублирует метод __str__.
+    # , метод get_rank дублирует метод __str__.
     #  Предлагаю или сделать их разными, или убрать один из них =)
     def get_rank(self):
         return self.rank
