@@ -4,7 +4,6 @@ lst_poteto = []
 class Potesto:
     states_ripe = {0: 'Отсутствует', 1: 'Росток', 2: 'Зеленая', 3: 'Зрелая'}
 
-    # TODO, возможно, аргумент index лишний =)
     def __init__(self, index):
         self.index = index
         self.states = 0
@@ -60,11 +59,7 @@ class Garden:
 
     def harvest(self, num_poteyto):
 
-        lst_poteto.append(num_poteyto)
-
-        # , таким образом удаляем все картошки, если созрела одна.
-        #  При помощи какого спискового метода можно удалить конкретный элемент списка?
-        # TODO, в целом, идея интересная. Предлагаю попробовать удалять методом remove.
-        #  В таком случае, аргумент index у картошки получится лишним
+        lst_poteto.append(num_poteyto.index)
         self.ridge.potetoes.remove(num_poteyto)
-        print(lst_poteto)
+        for i_pot in lst_poteto:
+            print (f'{self.name} собрал картошку {i_pot}')
