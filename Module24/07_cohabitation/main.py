@@ -75,10 +75,10 @@ hause = Hause()
 people2.add_hause(hause)
 people1.add_hause(hause)
 
-
 count = 0
 while count < 365:
     people1.act()
     people2.act()
     count += 1
 
+# зачёт!
