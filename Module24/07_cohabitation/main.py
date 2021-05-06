@@ -14,14 +14,9 @@ class People:
 
     def act(self):
 
-        # , цикл while стоит реализовать вне класса.
-        #  Метод act должен отвечать только за 1 день жизни человека.
-
         cub = random.randint(1, 2)
-        # , класс People ничего не знает про переменную people1 т.к. она создаётся вне класса.
-        #  И не должен! =) Предлагаю обращаться к "своим" аргументам.
         if self.degree_hunger < 20:
-            people1.eat()
+            self.eat()
         elif cub == 1:
             self.work()
         elif cub == 2:
@@ -40,8 +35,8 @@ class People:
         if self.hause.money > 0 and self.degree_hunger < 15:
             self.degree_hunger += 1
             self.hause.refrigerator_food -= 10
-            print('Поел уровень сытности ', self.degree_hunger)
-            print(f'Еды осталось {self.hause.refrigerator_food}')
+            print(f'{self.name} поел уровень сытности ', self.degree_hunger)
+            print(f'Еды у {self.name} осталось {self.hause.refrigerator_food}')
         else:
             self.work()
 
@@ -50,7 +45,7 @@ class People:
         self.degree_hunger -= 1
         self.hause.money += 1
 
-        print('Заработал денег', self.hause.money, 'уровень сытности', self.degree_hunger)
+        print(f'{self.name} заработал денег', self.hause.money, 'уровень сытности', self.degree_hunger)
 
     def Go_to_the_store_for_food(self):
         """""В магазин за едой"""""
@@ -58,8 +53,8 @@ class People:
         if self.hause.money > 0:
             self.hause.money -= 1
             self.degree_hunger += 1
-            print(f'Сходил в магазин за едой. Уровень еды {self.degree_hunger}')
-            print(f'Денег осталось {self.hause.money}')
+            print(f'{self.name} сходил в магазин за едой. Уровень еды {self.degree_hunger}')
+            print(f'Денег у {self.name} осталось {self.hause.money}')
 
     def pley(self):
         """"Играть"""""
@@ -75,15 +70,15 @@ class Hause:
 
 
 people1 = People('Вася')
+people2 = People('Миша')
 hause = Hause()
+people2.add_hause(hause)
 people1.add_hause(hause)
-people1.act()
+
 
 count = 0
 while count < 365:
     people1.act()
+    people2.act()
     count += 1
 
-# TODO в целом, всё хорошо.
-#  "Реализуйте такую программу и создайте двух людей, живущих в одном доме.
-#  Проверьте работу программы несколько раз. Надеемся, эти люди живы..."
