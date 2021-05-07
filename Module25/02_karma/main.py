@@ -14,15 +14,18 @@ class GluttonyError(Exception):
     pass
 
 class DepressionError(Exception):
+    # TODO, если определить метод str, то при записи текст можно не указывать и исключения сможем ловить группой.
     pass
 
 
 
 def one_day():
+    # TODO, функция должна или вызывать случайное исключение, или возвращать случайное количество кармы.
     return (random.randint(1, 7),random.randint(1, 50))
 
 number_karma = 0
 while number_karma < 500:
+    # TODO, стоит подумать, как запускать функцию только 1 раз. =)
     number_karma += one_day()[0]
     number_exception = one_day()[1]
 

@@ -1,4 +1,5 @@
-class MyDict:
+class MyDict:  # TODO, родительский класс должен быть "словарь"
+    # TODO, переопределить необходимо только метод get.
     def __init__(self,key,value):
         self.__key = key
         self.__value = value

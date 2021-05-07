@@ -4,9 +4,11 @@ class Property:
         self.worth = worth
 
 
-
+    # TODO, пожалуйста, оставьте только 1 метод для расчёта налога.
     def tax_calculationApartment(self):
         result = self.worth/1000
+        # TODO, метод возможно лишний, т.к. заменяем всего 1 строку кода.
+        #  или, можно перенести в него возврат =)
         self.print_info(result)
         return result
 
@@ -25,6 +27,8 @@ class Property:
 
 
 class  Apartment(Property):
+    # TODO, если метод не меняется, то переопределять его не нужно =)
+    #  Предлагаю в наши методы добавить коэффициенты для расчёта 1000, 500 и 200
     def __init__(self,worth):
         super().__init__(worth)
 
