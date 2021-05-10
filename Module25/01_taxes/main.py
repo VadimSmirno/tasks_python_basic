@@ -5,22 +5,13 @@ class Property:
 
 
     # TODO, пожалуйста, оставьте только 1 метод для расчёта налога.
-    def tax_calculationApartment(self):
-        result = self.worth/1000
+    # def tax_calculation(self):
+    #     result = self.worth/coefficient
         # TODO, метод возможно лишний, т.к. заменяем всего 1 строку кода.
         #  или, можно перенести в него возврат =)
-        self.print_info(result)
-        return result
 
-    def tax_calculationCar(self):
-        result = self.worth / 200
-        self.print_info(result)
-        return result
+        # return result
 
-    def tax_calculationCountryHouse(self):
-        result = self.worth/500
-        self.print_info(result)
-        return result
 
     def print_info(self,result):
         print (f'налог составил: {result}')
@@ -29,16 +20,25 @@ class Property:
 class  Apartment(Property):
     # TODO, если метод не меняется, то переопределять его не нужно =)
     #  Предлагаю в наши методы добавить коэффициенты для расчёта 1000, 500 и 200
-    def __init__(self,worth):
-        super().__init__(worth)
+    def tax_calculation(self,coefficient=1000):
+        result = self.worth/coefficient
+        self.print_info(result)
+        return result
+
+
 
 class  Car(Property):
-    def __init__(self,worth):
-        super().__init__(worth)
+    def tax_calculation(self, coefficient=500):
+        result = self.worth / coefficient
+        self.print_info(result)
+        return result
+
 
 class  CountryHouse(Property):
-    def __init__(self,worth):
-        super().__init__(worth)
+    def tax_calculation(self, coefficient=200):
+        result = self.worth / coefficient
+        self.print_info(result)
+        return result
 
 
 def check(res, money):
@@ -56,21 +56,21 @@ for _ in range(3):
     price = int(input(f'Какова стоимость {property}? '))
     if property == 'квартира':
         apartment = Apartment(worth=price)
-        result = apartment.tax_calculationApartment()
+        result = apartment.tax_calculation()
         if not check(result,money):
             break
         money-=result
     elif property == 'машина':
         car = Car(worth=price)
-        car.tax_calculationCar()
-        result_car = car.tax_calculationCar()
+
+        result_car = car.tax_calculation()
         if not check(result_car, money):
             break
         money -= result_car
     elif property == 'дача':
         country_house = CountryHouse(worth=price)
-        country_house.tax_calculationCountryHouse()
-        result_country_house = country_house.tax_calculationCountryHouse()
+
+        result_country_house = country_house.tax_calculation()
         if not check(result_country_house,money):
             break
         money -= result_country_house

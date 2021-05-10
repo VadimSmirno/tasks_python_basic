@@ -1,18 +1,15 @@
-class MyDict:  # TODO, родительский класс должен быть "словарь"
-    # TODO, переопределить необходимо только метод get.
-    def __init__(self,key,value):
-        self.__key = key
-        self.__value = value
+class MyDict(dict):
 
-    def __str__(self):
-        return f'{self.__key} : {self.__value}'
+    def my_get(self,key,dct):
+        self.get(key)
+        if not key in dct:
+            return 0
+        else:
+            return dct[key]
 
 
-    def get_key(self):
-        return self.__key
+dct = {1:'q',2:'e', 3:'t'}
+mydict = MyDict()
+print(mydict.my_get(5,dct))
 
-    def get_value(self):
-        return self.__value
 
-    def set_value(self,value):
-        return self.__value==value
