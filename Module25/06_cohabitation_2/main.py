@@ -1,31 +1,34 @@
 class Person:
 
-
-
-    def __init__(self,name):
+    def __init__(self, name):
+        # TODO, стоит добавить аргумент "дом" изначально равный None
+        #  И метод для заселения человека в дом.
         self.name = name
         self.happiness = 100
         self.degree_of_satiety = 30
         self.degree_satiety()
 
-    def  degree_satiety(self):
+    def degree_satiety(self):
         if self.degree_of_satiety < 0:
             return False
 
-    def  eat(self):
+    def eat(self):
         """"
         Кушать, степень сытости увеличивается на 1,
         Еда в холодильнике дома уменьшается на 10 ед.
         """""
 
+        # TODO, необходимо обращаться к своему дому. Про переменную hause наш класс ничего знать не должен =)
         if hause.food_in_the_fridge > 10:
-            hause.food_in_the_fridge-=10
+            hause.food_in_the_fridge -= 10
             self.degree_of_satiety += 1
             print(f'{self.name} поел уровень сытности {self.degree_of_satiety} '
                   f'еды в холодильник {hause.food_in_the_fridge}')
         else:
-            print ('еда закончилась нужно идти в магазин')
+            print('еда закончилась нужно идти в магазин')
+            # TODO, в этом методе еду не покупаем, только едим если можем =)
             wife.buy_products()
+
 
 class Husband(Person):
 
@@ -35,10 +38,10 @@ class Husband(Person):
         """""
         self.degree_of_satiety -= 10
         self.happiness += 20
-        print (f'{self.name} поиграл уровень сытности {self.degree_of_satiety}'
-               f'уровень счастья {self.happiness}')
+        print(f'{self.name} поиграл уровень сытности {self.degree_of_satiety}'
+              f'уровень счастья {self.happiness}')
 
-    def  work(self):
+    def work(self):
         """
         Муж работает, деньги увеличиваются на 150 ед
         """""
@@ -55,6 +58,7 @@ class Wife(Person):
     покупает шубу деньги уменьшаются на 350 ед, счастье растет на 60 ед
     убирается дома грязь  минус 100 ед
     """""
+
     def buy_products(self):
         """"
         Купить еды для людей и для кота.
@@ -65,14 +69,14 @@ class Wife(Person):
             hause.money -= 20
             hause.food_in_the_fridge += 10
             hause.cat_food += 10
-            print (f'{self.name} сходила в магазин. Еды в холодильнике {hause.food_in_the_fridge}'
-                   f'Еды у кота {hause.cat_food}'
-                   f'Денег осталось {hause.money}')
+            print(f'{self.name} сходила в магазин. Еды в холодильнике {hause.food_in_the_fridge}'
+                  f'Еды у кота {hause.cat_food}'
+                  f'Денег осталось {hause.money}')
         else:
-            print ('Нижно отправлять мужа на работу')
+            print('Нижно отправлять мужа на работу')
             husband.work()
 
-    def  buy_a_fur_coat(self):
+    def buy_a_fur_coat(self):
         self.degree_of_satiety -= 10
         if hause.money > 350:
             hause.money -= 350
@@ -84,45 +88,47 @@ class Wife(Person):
         self.degree_of_satiety -= 10
         if hause.dirt_in_the_house >= 100:
             hause.dirt_in_the_house -= 100
-            print ('Нужно прибраться в доме')
+            print('Нужно прибраться в доме')
 
 
-class  Hause:
+class Hause:
     def __init__(self):
         self.money = 100
         self.food_in_the_fridge = 50
         self.cat_food = 30
         self.dirt_in_the_house = 0
 
+
+# TODO, возможно, кот не должен наследоваться от Person
 class Cat(Person):
-    def  eat(self):
+    def eat(self):
         """"
         Кот ест максимум по 10 единиц еды, 
         степень сытости растёт на два пункта за один пункт еды.
         """""
 
         if hause.cat_food > 10:
-            hause.cat_food-=10
+            hause.cat_food -= 10
             self.degree_of_satiety += 2
             print(f'{self.name} поел, уровень сытности {self.degree_of_satiety}'
                   f'Еды у кота {hause.cat_food}')
         else:
-            print ('Еды у еота мало нужно в магазин')
+            print('Еды у еота мало нужно в магазин')
+            # TODO, покупать еду в этом методе не нужно =)
+            #  + Метод кот изначально ничего про переменные hause и wife не знает.
+            #  Если перенести класс в другой модуль, без этих переменных то получим ошибку.
+            #  Но по идее, класс должен работать вне зависимости от модуля, в который мы его импортируем.
             wife.buy_products()
 
     def slip(self):
         self.degree_of_satiety -= 10
         print('Кот спит, проголодался')
 
-
     def tear_wallpaper(self):
         self.degree_of_satiety -= 10
         hause.dirt_in_the_house += 5
         print(f'{self.name} порвал обои'
               f'грязи в доме {hause.dirt_in_the_house}')
-
-
-
 
 
 hause = Hause()
@@ -132,11 +138,12 @@ cat = Cat('Барсик')
 
 count = 0
 while count < 365:
+    # TODO, предлагаю у каждого человека добавить метод act, который бы проверял состояние человека и производил
+    #  какое-то одно действие. В том числе и ел =)
     wife.eat()
     husband.eat()
     cat.eat()
     if wife.degree_satiety() or husband.degree_satiety() or cat.degree_satiety():
-        print ('Год не прожили')
+        print('Год не прожили')
         break
     count += 1
-

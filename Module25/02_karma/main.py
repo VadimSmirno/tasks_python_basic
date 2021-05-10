@@ -31,6 +31,9 @@ class DepressionError(Exception):
 def one_day():
 
     return (random.randint(1, 7))
+    # TODO, эта функция должна или вызывать исключение или возвращать количество кармы.
+    #  предлагаю хранить исключения в списке, в таком случае какой метод модуля random
+    #  может помочь получить случайный элемент списка? =)
 
 number_karma = 0
 while number_karma < 500:
