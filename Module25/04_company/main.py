@@ -17,29 +17,32 @@ class Person:
 
 class Employee(Person):
 
-    def __str__(self):
-        f'{self.get_name(), self.get_surname()} возраст: {self.get_age()} '
+    def print_info(self):
+        print (f'{self.get_name()} {self.get_surname()} возраст: {self.get_age()} ')
 
 
 class Manager(Employee):
+    def __init__(self, name, surname, age,selary):
+        super().__init__(name, surname, age)
+        self.selary = selary
 
     # TODO, стоит определить метод init и в нём создать аргумент "заработная плата"
     #  в selary предлагаю возвращать именно этот аргумент )
 
-    def selary(self):
-        return 13000
+    def selary_manager(self):
+        return self.selary
+
+
 
 
 class Agent(Employee):
-    def __init__(self, name, surname, age, volume_of_sales):
+    def __init__(self, name, surname, age):
         super().__init__(name, surname, age)
-        self.volume_of_sales = volume_of_sales
-        # TODO, стоит определить метод init и в нём создать аргумент "заработная плата"
-        #  а так же "процент".
+        self.selary = 5000
+        self.percent = 5
 
     def selary_agent(self):
-        return 5000 + self.volume_of_sales * 0.05
-
+        return self.selary + self.selary*self.percent/100
 
 class Worker(Employee):
     def __init__(self, name, surname, age, opening_hours):
@@ -50,4 +53,17 @@ class Worker(Employee):
         return 100 * self.opening_hours
 
 
-maneger = Manager('Путя', 'Иванов', 23)
+maneger1 = Manager(name='Петя', surname='Иванов', age=23, selary=13000)
+maneger2 = Manager(name='Коля', surname='Сидоров', age=21, selary=13000)
+maneger3 = Manager(name='Ваня', surname='Петров', age=22, selary=13000)
+agent = Agent(name='Лена', surname='Петрова', age=25)
+agent1 = Agent(name='Оля', surname='Козлова', age=26)
+agent2= Agent(name='Саша', surname='Цветкова', age=24)
+worker = Worker(name='Володя',surname='Козлов',age=23,opening_hours=135)
+worker2 = Worker(name='Наташа',surname='Волкова',age=33,opening_hours=175)
+worker3= Worker(name='Володя',surname='Серов',age=23,opening_hours=152)
+lst = [maneger1,maneger2,maneger3,agent,agent1,agent2,worker,worker2,worker3]
+
+for i_objekt in lst:
+    print (i_objekt.print_info())
+

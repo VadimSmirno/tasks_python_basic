@@ -29,34 +29,25 @@ class DepressionError(Exception):
 
 
 def one_day():
-
-    return (random.randint(1, 7))
-    # TODO, эта функция должна или вызывать исключение или возвращать количество кармы.
-    #  предлагаю хранить исключения в списке, в таком случае какой метод модуля random
-    #  может помочь получить случайный элемент списка? =)
+    error = random.choice([KillError(), DrunkError(), CarCrashError(), GluttonyError(), DepressionError()])
+    call_or_not_error = random.randint(1,10)
+    if call_or_not_error == 1:
+        raise error
+    else:
+        return random.randint(1,7)
 
 number_karma = 0
 while number_karma < 500:
 
-    number_karma += one_day()
-    number_exception = random.randint(1,50)
-
     try:
-        if number_exception == 1:
-            print ('Карма нарушена')
-            raise KillError
-        elif number_exception == 10:
-            raise DrunkError
-        elif number_exception == 20:
-            raise CarCrashError
-        elif number_exception == 30:
-            raise GluttonyError
-        elif number_exception == 40:
-            raise DepressionError
+        function_result = one_day()
 
     except (KillError,DrunkError,CarCrashError,GluttonyError,DepressionError) as err:
+        print (err)
         with open('karma.log', 'a') as fail:
-            fail.write(f'карма нарушена {err}\n')
+             fail.write(f'карма нарушена {err}\n')
+    else:
+        number_karma += function_result
     print(f'Уровень кармы {number_karma}')
 
 
