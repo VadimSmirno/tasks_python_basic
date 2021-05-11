@@ -3,16 +3,16 @@ class Steck:
         self.__lst = []
 
     def __str__(self):
-
         return '; '.join(self.__lst)
 
-    def push(self,elem):
+    def push(self, elem):
         self.__lst.append(elem)
 
     def pop(self):
         if len(self.__lst) == 0:
             return None
         return self.__lst.pop()
+
 
 class TaskManager:
 
@@ -23,12 +23,11 @@ class TaskManager:
         display = []
         if self.task:
             for i_priority in sorted(self.task.keys()):
-                    display.append(f'{str(i_priority)} {self.task[i_priority]}\n')
+                display.append(f'{str(i_priority)} {self.task[i_priority]}\n')
         return ''.join(display)
 
-
-    def new_task(self,task,priority):
-        if priority not  in self.task:
+    def new_task(self, task, priority):
+        if priority not in self.task:
             self.task[priority] = Steck()
         self.task[priority].push(task)
 
@@ -41,3 +40,4 @@ manager.new_task("поесть", 2)
 manager.new_task("сдать дз", 2)
 print(manager)
 
+# зачёт!

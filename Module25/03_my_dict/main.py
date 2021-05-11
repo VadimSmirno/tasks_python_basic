@@ -1,5 +1,6 @@
 class MyDict(dict):
 
+    # TODO, стоит переопределять метод get, а не создавать новый =)
     def my_get(self,key):
         if self.get(key) == None:
             return 0
