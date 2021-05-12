@@ -141,12 +141,13 @@ class Cat():
     def __init__(self, name):
         self.name = name
         self.degree_of_satiety_cat = 30
+        self.hause = None
 
 
     def act_cat(self):
         if self.degree_of_satiety_cat < 0:
             return True
-        elif self. > 0 and self.degree_of_satiety_cat < 5:
+        elif self.hause.cat_food > 0 and self.degree_of_satiety_cat < 5:
             self.eat_cat()
         elif self.degree_of_satiety_cat > 5:
             self.slip()
@@ -160,7 +161,7 @@ class Cat():
         Кот ест максимум по 10 единиц еды, 
         степень сытости растёт на два пункта за один пункт еды.
         """""
-        if self.cat_food >= 10:
+        if self.hause.cat_food >= 10:
             self.hause.cat_food -= 10
             self.degree_of_satiety_cat += 2
 
@@ -182,6 +183,7 @@ wife.add_hause(hause)
 husband = Husband('Ваня')
 husband.add_hause(hause)
 cat = Cat('Барсик')
+wife.add_cat_in_hause(Cat('Барсик'))
 
 
 
