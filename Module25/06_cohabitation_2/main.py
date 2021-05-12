@@ -10,7 +10,6 @@ class Person:
         """Присвоить дом человеку"""""
         self.hause = hause
 
-
     def add_cat_in_hause(self, cat):
         cat.hause = self.hause
 
@@ -81,7 +80,6 @@ class Wife(Person):
     """""
 
     def act(self):
-
 
         if not super().act():
             if self.hause.food_in_the_fridge or self.hause.cat_food < 5:
@@ -179,8 +177,7 @@ husband.add_hause(hause)
 cat = Cat('Барсик')
 wife.add_cat_in_hause(cat)
 
-
-# TODO, теперь, у человека стоит вызвать метод add_cat_in_hause и передать в него созданного кота =)
+# , теперь, у человека стоит вызвать метод add_cat_in_hause и передать в него созданного кота =)
 
 
 count = 0
@@ -194,4 +191,4 @@ while count < 365:
     if cat.act_cat():
         break
 
-
+# зачёт!
