@@ -10,20 +10,19 @@ class Person:
         """Присвоить дом человеку"""""
         self.hause = hause
 
-    # TODO, стоит добавить метод, поселить кота.
-    #  Который бы принимал на вход кота и присваивал ему дом человека =)
+
     def add_cat_in_hause(self, cat):
         cat.hause = self.hause
 
     def eat(self):
         """"
-        Кушать, степень сытости увеличивается на 1,
+        Кушать, степень сытости увеличивается на 10,
         Еда в холодильнике дома уменьшается на 10 ед.
         """""
 
         if self.hause.food_in_the_fridge > 10:
             self.hause.food_in_the_fridge -= 10
-            self.degree_of_satiety += 1
+            self.degree_of_satiety += 10
             print(f'{self.name} поел уровень сытности {self.degree_of_satiety} '
                   f'еды в холодильник {self.hause.food_in_the_fridge}')
         else:
@@ -83,9 +82,7 @@ class Wife(Person):
 
     def act(self):
 
-        # TODO, в методе super act у нас происходят основные проверки.
-        #  Предлагаю, запускать супер метод.
-        #  Если человек умер, код текущего метода не запускать.
+
         if not super().act():
             if self.hause.food_in_the_fridge or self.hause.cat_food < 5:
                 self.buy_products()
@@ -144,8 +141,9 @@ class Cat():
 
     def act_cat(self):
         if self.degree_of_satiety_cat < 0:
+            print('Кот умер от голода')
             return True
-        elif self.hause.cat_food > 0 and self.degree_of_satiety_cat < 5:
+        elif self.hause.cat_food > 0 and self.degree_of_satiety_cat < 30:
             self.eat_cat()
         elif self.degree_of_satiety_cat > 5:
             self.slip()
@@ -179,17 +177,21 @@ wife.add_hause(hause)
 husband = Husband('Ваня')
 husband.add_hause(hause)
 cat = Cat('Барсик')
-wife.add_cat_in_hause(Cat('Барсик'))
+wife.add_cat_in_hause(cat)
+
 
 # TODO, теперь, у человека стоит вызвать метод add_cat_in_hause и передать в него созданного кота =)
 
 
 count = 0
 while count < 365:
+    count += 1
+    print(f'День № {count}')
     if wife.act():
         break
     if husband.act():
         break
-    cat.act_cat()
-    count += 1
-    print(f'День № {count}')
+    if cat.act_cat():
+        break
+
+
