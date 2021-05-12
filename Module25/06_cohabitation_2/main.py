@@ -48,6 +48,7 @@ class Husband(Person):
         elif self.degree_of_satiety > 10:
             self.pley()
 
+
     def pley(self):
         """"
         Муж играет в видео игры доза счастья растет на 20 ед
