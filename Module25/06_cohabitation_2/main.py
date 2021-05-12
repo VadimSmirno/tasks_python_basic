@@ -12,9 +12,8 @@ class Person:
 
     # TODO, стоит добавить метод, поселить кота.
     #  Который бы принимал на вход кота и присваивал ему дом человека =)
-    def add_cat_in_hause(self,cat):
+    def add_cat_in_hause(self, cat):
         cat.hause = self.hause
-
 
     def eat(self):
         """"
@@ -142,7 +141,6 @@ class Cat():
         self.name = name
         self.degree_of_satiety_cat = 30
 
-
     def act_cat(self):
         if self.degree_of_satiety_cat < 0:
             return True
@@ -152,8 +150,6 @@ class Cat():
             self.slip()
         else:
             self.tear_wallpaper()
-
-
 
     def eat_cat(self):
         """"
@@ -183,7 +179,7 @@ husband = Husband('Ваня')
 husband.add_hause(hause)
 cat = Cat('Барсик')
 
-
+# TODO, теперь, у человека стоит вызвать метод add_cat_in_hause и передать в него созданного кота =)
 
 
 count = 0
