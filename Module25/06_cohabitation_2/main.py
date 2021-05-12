@@ -4,12 +4,12 @@ class Person:
         self.name = name
         self.happiness = 100
         self.degree_of_satiety = 30
-        # self.hause = None  # TODO, этот аргумент стоит раз комментировать. Он нужен.
+        self.hause = None
 
     def add_hause(self, hause):
         """Присвоить дом человеку"""""
         self.hause = hause
-        return self.hause  # TODO, возвращать дом не нужно =)
+
 
     def degree_satiety(self):
         if self.degree_of_satiety < 0:
@@ -28,28 +28,34 @@ class Person:
                   f'еды в холодильник {self.hause.food_in_the_fridge}')
         else:
             print('Еда закончилась нужно идти в магазин')
-            # , в этом методе еду не покупаем, только едим если можем =)
+
+    def act(self):
+
+        if self.degree_of_satiety < 5 and self.hause.food_in_the_fridge > 0:
+            self.eat()
+        elif self.hause.dirt_in_the_house >=90:
+            self.happiness -=10
+        elif self.happiness < 10:
+            print(f'{self.name} умер от депрессии')
+            return  True
+
+        elif self.degree_of_satiety < 0:
+            print(f'{self.name} умер от голода')
+            return True
 
 
 class Husband(Person):
 
     def act(self):
-        # TODO, стоит создать метод act у человека и вынести в него проверку на счастье и грязь.
-        #  Для сокращения количества кода.
-        if self.degree_of_satiety < 0 or self.happiness < 0:
-            return True
-        if self.degree_of_satiety < 5 and self.hause.food_in_the_fridge > 0:
-            self.eat()
-        elif self.hause.food_in_the_fridge < 5:
+
+        if self.hause.food_in_the_fridge < 5 or self.hause.money < 101:
             self.work()
-        elif self.hause.dirt_in_the_house >= 90:
-            self.happiness -= 10
-        else:
+        elif self.degree_of_satiety > 10:
             self.pley()
 
     def pley(self):
         """"
-        Муж играет в видео игры дожа счастья растет на 20 ед
+        Муж играет в видео игры доза счастья растет на 20 ед
         """""
         self.degree_of_satiety -= 10
         self.happiness += 20
@@ -63,7 +69,7 @@ class Husband(Person):
         self.degree_of_satiety -= 10
         self.hause.money += 150
         print(f'{self.name} заработал денег. Семейный бюджет {self.hause.money}')
-        self.pley()
+
 
 
 class Wife(Person):
@@ -76,42 +82,41 @@ class Wife(Person):
     """""
 
     def act(self):
-        # TODO, за 1 день необходимо делать только 1 действие =)
-        # TODO, стоит создать метод act у человека и вынести в него проверку на счастье и грязь.
-        #  Для сокращения количества кода.
-        if self.degree_of_satiety < 0 or self.happiness < 0:
-            return True
+
         if self.hause.food_in_the_fridge or self.hause.cat_food < 5:
             self.buy_products()
-        if self.hause.money >= 350:
+        elif self.hause.money >= 350:
             self.buy_a_fur_coat()
-        if self.hause.dirt_in_the_house > 90:
+        elif self.hause.dirt_in_the_house > 90:
             self.cleaning()
-        if self.hause.dirt_in_the_house >= 90:
-            self.happiness -= 10
+
 
     def buy_products(self):
-        # TODO, если в доме нет денег, то еды не купила, так и пишем.
 
         """"
         Купить еды для людей и для кота.
         """""
-        self.degree_of_satiety -= 10
-
-        self.hause.money -= 20
-        self.hause.food_in_the_fridge += 10
-        self.hause.cat_food += 10
-        print(f'{self.name} сходила в магазин. Еды в холодильнике {self.hause.food_in_the_fridge} '
+        if self.hause.money >=20:
+            self.degree_of_satiety -= 10
+            self.hause.money -= 20
+            self.hause.food_in_the_fridge += 10
+            self.hause.cat_food += 10
+            print(f'{self.name} сходила в магазин. Еды в холодильнике {self.hause.food_in_the_fridge} '
               f'Еды у кота {self.hause.cat_food} '
               f'Денег осталось {self.hause.money}')
+        else:
+            print('Денег в доме нет, еды не купила')
+
 
     def buy_a_fur_coat(self):
-        # TODO, если в доме нет денег, то шубу не купила, так и пишем.
-        self.degree_of_satiety -= 10
-        self.hause.money -= 350
-        self.happiness += 60
-        print(f'Накопили денег, купили шубу уровень счастья  {self.name} {self.happiness}'
-              f'Денег осталось {self.hause.money}')
+        if self.hause.money >=350:
+            self.degree_of_satiety -= 10
+            self.hause.money -= 350
+            self.happiness += 60
+            print(f'Накопили денег, купили шубу уровень счастья  {self.name} {self.happiness}'
+                  f'Денег осталось {self.hause.money}')
+        else:
+            print (f'{self.name} шубу не купила недостаточно денег')
 
     def cleaning(self):
         self.degree_of_satiety -= 10
@@ -139,24 +144,24 @@ class Cat():
             return True
         elif self.hause.cat_food > 0 and self.degree_of_satiety_cat < 5:
             self.eat_cat()
-        else:
-            # TODO, за 1 день, должно быть только 1 действие =)
+        elif self.degree_of_satiety_cat > 5:
             self.slip()
+        else:
             self.tear_wallpaper()
 
     def add_hause_cat(self, hause):
         """Присвоить дом коту"""""
         self.hause = hause  # TODO, кот сам в дом не заселяется, его заселяет человек.
-        return self.hause  # TODO, возвращать дом не нужно =) только присваивать
+
 
     def eat_cat(self):
-        # TODO, если в доме нет еды, то не поел.
         """"
         Кот ест максимум по 10 единиц еды, 
         степень сытости растёт на два пункта за один пункт еды.
         """""
-        self.hause.cat_food -= 10
-        self.degree_of_satiety_cat += 2
+        if self.hause.cat_food >= 10:
+            self.hause.cat_food -= 10
+            self.degree_of_satiety_cat += 2
 
     def slip(self):
         self.degree_of_satiety_cat -= 10

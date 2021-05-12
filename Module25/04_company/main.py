@@ -26,8 +26,6 @@ class Manager(Employee):
         super().__init__(name, surname, age)
         self.selary = selary
 
-    # , стоит определить метод init и в нём создать аргумент "заработная плата"
-    #  в selary предлагаю возвращать именно этот аргумент )
 
     def selary_manager(self):
         return self.selary
