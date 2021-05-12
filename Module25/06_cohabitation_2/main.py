@@ -10,11 +10,6 @@ class Person:
         """Присвоить дом человеку"""""
         self.hause = hause
 
-
-    def degree_satiety(self):
-        if self.degree_of_satiety < 0:
-            return False
-
     def eat(self):
         """"
         Кушать, степень сытости увеличивается на 1,
@@ -179,11 +174,13 @@ wife.add_hause(hause=Hause())
 husband = Husband('Ваня')
 husband.add_hause(hause=Hause())
 cat = Cat('Барсик')
-cat.add_hause_cat(hause=Hause())
+cat.add_hause_cat(hause=wife.hause)
 
 count = 0
 while count < 365:
-    wife.act()
-    husband.act()
+    if wife.act():
+        break
+    elif husband.act():
+        break
     cat.act_cat()
     count += 1
