@@ -12,6 +12,9 @@ class Person:
 
     # TODO, стоит добавить метод, поселить кота.
     #  Который бы принимал на вход кота и присваивал ему дом человека =)
+    def add_cat_in_hause(self,cat):
+        cat.hause = self.hause
+
 
     def eat(self):
         """"
@@ -31,7 +34,7 @@ class Person:
 
         if self.degree_of_satiety < 5 and self.hause.food_in_the_fridge > 0:
             self.eat()
-            # TODO, стоит вернуть False.
+            return False
         elif self.hause.dirt_in_the_house >= 90:
             self.happiness -= 10
         elif self.happiness < 10:
@@ -84,12 +87,13 @@ class Wife(Person):
         # TODO, в методе super act у нас происходят основные проверки.
         #  Предлагаю, запускать супер метод.
         #  Если человек умер, код текущего метода не запускать.
-        if self.hause.food_in_the_fridge or self.hause.cat_food < 5:
-            self.buy_products()
-        elif self.hause.money >= 350:
-            self.buy_a_fur_coat()
-        elif self.hause.dirt_in_the_house > 90:
-            self.cleaning()
+        if not super().act():
+            if self.hause.food_in_the_fridge or self.hause.cat_food < 5:
+                self.buy_products()
+            elif self.hause.money >= 350:
+                self.buy_a_fur_coat()
+            elif self.hause.dirt_in_the_house > 90:
+                self.cleaning()
 
     def buy_products(self):
 
@@ -138,26 +142,25 @@ class Cat():
         self.name = name
         self.degree_of_satiety_cat = 30
 
+
     def act_cat(self):
         if self.degree_of_satiety_cat < 0:
             return True
-        elif self.hause.cat_food > 0 and self.degree_of_satiety_cat < 5:
+        elif self. > 0 and self.degree_of_satiety_cat < 5:
             self.eat_cat()
         elif self.degree_of_satiety_cat > 5:
             self.slip()
         else:
             self.tear_wallpaper()
 
-    def add_hause_cat(self, hause):
-        """Присвоить дом коту"""""
-        self.hause = hause  # TODO, кот сам в дом не заселяется, его заселяет человек.
+
 
     def eat_cat(self):
         """"
         Кот ест максимум по 10 единиц еды, 
         степень сытости растёт на два пункта за один пункт еды.
         """""
-        if self.hause.cat_food >= 10:
+        if self.cat_food >= 10:
             self.hause.cat_food -= 10
             self.degree_of_satiety_cat += 2
 
@@ -174,21 +177,21 @@ class Cat():
 
 wife = Wife('Катя')
 
-# TODO, таким образом, мы создали 2 разных дома.
-#  Стоит сначала создать 1 объект класса "дом" и передать его мужу и жене.
-wife.add_hause(hause=Hause())
+hause = Hause()
+wife.add_hause(hause)
 husband = Husband('Ваня')
-husband.add_hause(hause=Hause())
+husband.add_hause(hause)
 cat = Cat('Барсик')
-cat.add_hause_cat(hause=wife.hause)
+
+
+
 
 count = 0
 while count < 365:
-    # TODO, в цикле стоит запускать всех жильцов =)
-    #  Так же, чтобы разделять дни, стоит добавить вывод номера дня.
     if wife.act():
         break
-    elif husband.act():
+    if husband.act():
         break
     cat.act_cat()
     count += 1
+    print(f'День № {count}')
