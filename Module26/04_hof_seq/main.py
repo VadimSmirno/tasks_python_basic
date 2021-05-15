@@ -1,6 +1,9 @@
 class Hofstadter:
     def __init__(self, lst):
         self.lst = lst[:]
+        # TODO, предлагаю попробовать решить без списка
+        #  Генераторы не должны хранить в себе полные массивы с данными.
+        #  Должны производить расчёт и возвращать данные постепенно.
 
     def __next__(self):
         try:
@@ -16,4 +19,4 @@ class Hofstadter:
 
 
 hofstadter = Hofstadter([1,1])
-print ([next(hofstadter) for  _ in range(10)])
+print ([next(hofstadter) for  _ in range(50)])
