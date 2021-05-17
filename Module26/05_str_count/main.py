@@ -4,6 +4,8 @@ directory = input('Введите директорию ')
 
 def gen_files_path(directory):
     count_len = 0
+    # TODO, конкатенация в заданиях с директориями лишняя =)
+    #  Предлагаю объединять файлы вв директорию при помощи метода join модуля os.
     for i_name_faile in os.listdir(directory):
         if os.path.isdir(directory + '\\' + i_name_faile):
             gen_files_path(directory + '\\' + i_name_faile)

@@ -11,7 +11,7 @@ def multiplication(list_1: list, list_2: list) -> Iterable[int]:
             result = x * y
             print(x, y, result)
             if result == to_find:
-                print('Found!!!')
+                print('Found!!!')  # TODO, вместо print, стоит просто вернуть текст =)
                 yield
 
 
