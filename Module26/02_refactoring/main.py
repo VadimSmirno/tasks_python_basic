@@ -13,7 +13,6 @@ def multiplication(list_1: list, list_2: list) -> Iterable[int]:
             if result == to_find:
                 print('Found!!!')
                 yield
-                return  # TODO, эта строка получилась лишней.
 
 
 function_result = multiplication(list_1, list_2)

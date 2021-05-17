@@ -1,24 +1,25 @@
 import os
 
 directory = input('Введите директорию ')
+name_faile = input('Какой файл ищем? ')
 
-def gen_files_path(directory:str):
-    result = os.walk(directory)
-    yield result
+def gen_files_path(directory:str,name_faile:str):
+    for i in os.listdir(directory):
+        yield  (directory + '\\' + i)
+        if i == name_faile:
+            yield ( 'Файл найден',directory + '\\' + i)
+            return
+
+        elif os.path.isdir(directory + '\\' + i):
+            gen_files_path((directory + '\\' + i), name_faile)
 
 
-function_result = gen_files_path(directory)
-for i_generator in function_result:
-    for j_directory in i_generator:
-        print(j_directory)
+function_result = gen_files_path(directory,name_faile)
+for i in function_result:
+     print (i)
 
-# TODO, код выглядит недописаным. Функция должна содержать рекурсию =)
-#  К примеру, у нас есть папка.
-#  C:\Users\...\python_basic\Module26\02_refactoring
-#  Пользователь должен указать начальную директорию
-#  К примеру
-#  C:\Users\...\python_basic\
-#  И название папки 02_refactoring.
-#  Необходимо рекурсией идти по всем папкам от "C:\Users\...\python_basic\ " до конца... =)
-#  Если встречаем файл или папку - выводим название, в папку заходим и так, пока не найдём в директории папку "02_refactoring".
-#  Давайте попробуем.
+
+# D:\python_basic
+# 03_files_path
+
+
