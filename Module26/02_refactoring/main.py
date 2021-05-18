@@ -14,7 +14,8 @@ def multiplication(list_1: list, list_2: list) -> Iterable[int]:
                 yield 'Found!!!'
 
 
-
 function_result = multiplication(list_1, list_2)
 for i_result in function_result:
     print(i_result)
+
+# зачёт!
