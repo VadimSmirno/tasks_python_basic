@@ -5,19 +5,14 @@ name_faile = input('Какой файл ищем? ')
 
 
 def gen_files_path(directory: str, name_faile: str):
-    for i in os.listdir(directory):
-        # TODO, стоит поправить название переменной "i".
-        #  Первым делом проверим, если "i" это файл, то возвращаем его название
-        yield (directory + '\\' + i)  # TODO, конкатенация в заданиях с директориями лишняя =)
-        # TODO, если "i" директория, то проверяем её базовое название.
-        #  Если совпадает, то выходим из рекурсии.
-        #  Если нет, то запускаем цикл по вызову функции gen_files_path.
-        if i == name_faile:
-            yield ('Файл найден', directory + '\\' + i)
-            return
-
-        elif os.path.isdir(directory + '\\' + i):
-            gen_files_path((directory + '\\' + i), name_faile)
+    for i_name_faile in os.listdir(directory):
+        if os.path.isfile(i_name_faile):
+            yield i_name_faile
+        elif os.path.isdir(i_name_faile):
+            if os.path.basename(i_name_faile) == name_faile:
+                return os.path.join(directory,i_name_faile)
+        else:
+            gen_files_path(os.path.join(directory, i_name_faile), name_faile)
 
 
 function_result = gen_files_path(directory, name_faile)
