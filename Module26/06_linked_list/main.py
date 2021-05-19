@@ -64,7 +64,7 @@ class LinkedList:
                 return  node
             node = node.next
             curr_index += 1
-        return  node.value
+        return  node.value  # TODO, пожалуйста, обратит внимание, в этом месте кода, пока что, получаем ошибку.
 
 
 

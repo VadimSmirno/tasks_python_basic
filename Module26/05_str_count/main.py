@@ -3,7 +3,7 @@ import os
 directory = input('Введите директорию ')
 
 
-def gen_files_path(directory:str):
+def gen_files_path(directory: str):
     count_line = 0
 
     for i_name_faile in os.listdir(directory):
@@ -20,3 +20,5 @@ def gen_files_path(directory:str):
 function_result = gen_files_path(directory)
 for i_number_lines in function_result:
     print(i_number_lines)
+
+# зачёт!
