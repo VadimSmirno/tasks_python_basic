@@ -57,14 +57,14 @@ class LinkedList:
 
     def get(self, index):
 
-        curr_index = 0
         node = self.head
-        while curr_index < index:
+        curr_index = 0
+        while curr_index <= index:
             if curr_index == index:
-                return  node
-            node = node.next
+                return node.value
             curr_index += 1
-        return  node.value  # TODO, пожалуйста, обратит внимание, в этом месте кода, пока что, получаем ошибку.
+            node = node.next
+
 
 
 
@@ -75,6 +75,6 @@ my_list.append(20)
 my_list.append(30)
 print (my_list)
 print ()
-my_list.remove(0)
-print (my_list.get(2))
+# my_list.remove(0)
+print (my_list.get(3))
 print(my_list)
