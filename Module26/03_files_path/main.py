@@ -25,3 +25,15 @@ for i in function_result:
 # D:\python_basic
 # 03_files_path
 
+
+
+def direc(directory,name_faile):
+    for root, dirs, file in os.walk(directory):
+        yield root
+        if os.path.basename(root) == name_faile:
+            print ('Нашел')
+            return
+
+result = direc(directory,name_faile)
+for i in result:
+    print (i)
