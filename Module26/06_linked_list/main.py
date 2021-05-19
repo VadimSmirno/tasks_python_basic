@@ -60,6 +60,8 @@ class LinkedList:
         curr_index = 0
         node = self.head
         while curr_index < index:
+            if curr_index == index:
+                return  node
             node = node.next
             curr_index += 1
         return  node.value
@@ -74,5 +76,5 @@ my_list.append(30)
 print (my_list)
 print ()
 my_list.remove(0)
-print (my_list.get(0))
+print (my_list.get(2))
 print(my_list)
