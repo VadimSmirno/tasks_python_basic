@@ -62,8 +62,6 @@ class LinkedList:
         curr_index = 0
         while curr_index <= index:
             if curr_index == index:
-                # TODO, пока что получаем ошибку в этом месте кода при запуске кода =)
-                #  AttributeError: 'NoneType' object has no attribute 'value'
                 return node.value
             curr_index += 1
             node = node.next
@@ -76,5 +74,5 @@ my_list.append(30)
 print(my_list)
 print()
 # my_list.remove(0)
-print(my_list.get(3))
+print (my_list.get(2))
 print(my_list)
