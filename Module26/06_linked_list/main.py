@@ -23,6 +23,7 @@ class LinkedList:
         return 'LinkedList[]'
 
     def append(self, elem):
+        # TODO, стоит увеличить длину до добавления.
         new_node = Node(elem)
         if self.head is None:
             self.head = new_node
@@ -43,20 +44,24 @@ class LinkedList:
         if cur_node is not None:
             if index == 0:
                 self.head = cur_node.next
-                self.length -= 1
+                self.length -= 1  # TODO, лишнее действие.
                 return
 
         while cur_node is not None:
-            if cur_index == index:
+            if cur_index == index:  # TODO, правильно проверять, если строго больше
                 break
             prev = cur_node
             cur_node = cur_node.next
             cur_index += 1
 
+        # TODO, если текущий Node None, то выходим из метода.
+
         prev.next = cur_node.next
         self.length -= 1
 
     def get(self, index):
+
+        # TODO, если текущая длина равна 0 или меньше индекса элемента, из метода стоит выйти =)
 
         node = self.head
         curr_index = 0
@@ -74,5 +79,6 @@ my_list.append(30)
 print(my_list)
 print()
 # my_list.remove(0)
-print (my_list.get(2))
+print(my_list.get(2))
+print(my_list.get(3))
 print(my_list)
