@@ -11,12 +11,8 @@ def how_are_you(func: Callable) -> Callable:
     @functools.wraps(func)
     def wrapped_func() -> None:
         print('Как дела?\nХорошо.\nА у меня не очень!\nЛадно, держи свою функцию.')
-        func()
-        return
-
-    # TODO, Стоит добавить возврат данных, которые возвращает функция.
-    #  Т.к. если функция что-то вернёт, а декоратор не вернёт, возврат потеряется в декораторе.
-
+        value = func()
+        return value
     return wrapped_func
 
 

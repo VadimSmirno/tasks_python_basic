@@ -13,16 +13,13 @@ def logging(func):
         ))
         try:
             result = func(*args, *kwargs)
-            # TODO, предлагаю производить возврат в этом месте.
-            #  Таким образом код будет в одном месте =)
+            return result
         except Exception("Упс") as err:
             time_err = datetime.time
             with open('function_errors.log', 'a', encoding='UTF-8') as fail:
                 fail.write(f'Ошибка в функции {func} {err}, время возникновения ошибки {time_err}')
 
         print('Функция успешно завершила работу')
-        return result
-
     return wrapped_func
 
 
