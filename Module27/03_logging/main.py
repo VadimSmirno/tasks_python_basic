@@ -14,13 +14,10 @@ def logging(func):
         try:
             result = func(*args, *kwargs)
             return result
-        except Exception("Упс") as err:  # TODO, если указываем (), то вызываем ошибку, стоит убрать ("Упс")
-            time_err = datetime.time
+        except Exception as err:
+            time_err = datetime.datetime.now()
             with open('function_errors.log', 'a', encoding='UTF-8') as fail:
-                fail.write(f'Ошибка в функции {func} {err}, время возникновения ошибки {time_err}')
-
-        print('Функция успешно завершила работу')
-
+                fail.write(f'Ошибка в функции {func.__name__} {err}, время возникновения ошибки {time_err}\n')
     return wrapped_func
 
 
@@ -34,6 +31,6 @@ def squares_num(number):
     return result
 
 
-squares_num(number=5)
+squares_num(number='')
 
 

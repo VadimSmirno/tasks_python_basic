@@ -7,8 +7,8 @@ def counter(func: Callable) -> Callable:
     def wrapped_func(*args, **kwargs):
         value = func(*args, **kwargs)
         wrapped_func.count += 1
-        # TODO, пожалуйста, добавьте вывод количества в декораторе.
-        return value, wrapped_func.count  # TODO wrapped_func.count возвращать не нужно =)
+        print(f'Функция {func.__name__} вызывалась {wrapped_func.count} раз')
+        return value
 
     wrapped_func.count = 0
     return wrapped_func
@@ -32,5 +32,4 @@ square_num(3)
 cubs_num(4)
 cubs_num(6)
 cubs_num(4)
-print(f'Функция {cubs_num.__name__} вызывалась {cubs_num(3)[1]} раз')
-print(f'Функция {square_num.__name__} вызывалась {square_num(6)[1]} раз')
+
