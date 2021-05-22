@@ -18,6 +18,7 @@ def logging(func):
             time_err = datetime.datetime.now()
             with open('function_errors.log', 'a', encoding='UTF-8') as fail:
                 fail.write(f'Ошибка в функции {func.__name__} {err}, время возникновения ошибки {time_err}\n')
+
     return wrapped_func
 
 
@@ -33,4 +34,4 @@ def squares_num(number):
 
 squares_num(number='')
 
-
+# зачёт!

@@ -33,3 +33,4 @@ cubs_num(4)
 cubs_num(6)
 cubs_num(4)
 
+# зачёт!
