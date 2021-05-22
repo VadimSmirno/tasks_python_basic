@@ -1,15 +1,18 @@
-import  functools
+import functools
+
 
 def debug(func):
     @functools.wraps(func)
-    def wrapped_func(*args,**kwargs):
+    def wrapped_func(*args, **kwargs):
         print('\nВызывается функция {func} {args}{kwargs}'.format(
             func=func.__name__, args=args, kwargs=kwargs,
         ))
-        value = func(*args,**kwargs)
-        print (f'{func.__name__} вернула значение: {value}')
+        value = func(*args, **kwargs)
+        print(f'{func.__name__} вернула значение: {value}')
         return value
+
     return wrapped_func
+
 
 @debug
 def greeting(name, age=None):
@@ -22,3 +25,5 @@ def greeting(name, age=None):
 print(greeting("Том"))
 print(greeting("Миша", age=100))
 print(greeting(name="Катя", age=16))
+
+# зачёт!

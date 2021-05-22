@@ -12,7 +12,8 @@ def how_are_you(func: Callable) -> Callable:
     def wrapped_func() -> None:
         print('Как дела?\nХорошо.\nА у меня не очень!\nЛадно, держи свою функцию.')
         value = func()
-        return value
+        return value  # или сразу return func()
+
     return wrapped_func
 
 
@@ -22,3 +23,5 @@ def test() -> None:
 
 
 test()
+
+# зачёт!
