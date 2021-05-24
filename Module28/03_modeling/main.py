@@ -27,10 +27,18 @@ class Triangle:
         print (f'Периметр треугольника {p}')
 
 class Cube(Square):
+    # TODO,
+    #  Вся поверхность 3D фигуры может храниться в виде списка, например для Куба это будет [Square, Square, Square, Square, Square, Square]
+    #  По идее, куб должен содержать в одном из методе 6 классов Square. =)
     def area_cub(self):
        s = self.area() * 6
        print(f'площадь поверхности куба {s}')
        return s
+
+# TODO, предлагаю попробовать добавить в решение класс Миксин
+#  с одним методом - расчётом площади фигуры.
+
+
 
 class Piramide(Triangle):
     def area_piramide(self):

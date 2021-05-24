@@ -14,6 +14,9 @@ class File:
 
 
     def __enter__(self):
+        # TODO, предлагаю ловить ошибку при открытии файла при помощи open, без дополнительной проверки.
+        #  Если в метод self.method был передан некорректный аргумент, стоит открывать насильно любым способом.
+        #  Можно добавить ещё проверок на ошибки =)
         if not os.path.exists(os.path.abspath(self.file_name)) and self.method == 'r':
             self.file_obj = open(self.file_name, 'w',encoding='UTF-8')
         else:
