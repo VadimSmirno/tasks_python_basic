@@ -2,24 +2,20 @@ import math
 
 class MyMath:
 
-    def __init__(self):
-        self.radius = None
-        self.cube_side_length = None
-
     @classmethod
-    def circumference(self,radius):
-        self.radius = radius
+    def circumference(cls,radius):
+
         return round(2 * radius * math.pi, 3)
     @classmethod
-    def area_circle(self,radius):
+    def area_circle(cls,radius):
         return round(math.pi * radius**2,3 )
 
     @classmethod
-    def cube_volume(self,cube_side_length):
+    def cube_volume(cls,cube_side_length):
         return cube_side_length**3
 
     @classmethod
-    def sphere_area(self,radius):
+    def sphere_area(cls,radius):
         return round(4 * math.pi * radius ** 2)
 
 res_1 = MyMath.circumference(5)
