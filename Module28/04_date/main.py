@@ -13,8 +13,7 @@ class Date:
     @classmethod
     def from_string(cls, date):
         lst_date = date.split('-')
-        # TODO, только лучше cls вместо Date =)
-        result = Date(lst_date[0],lst_date[1],lst_date[2])
+        result = cls(lst_date[0],lst_date[1],lst_date[2])
         return result
 
     @classmethod
