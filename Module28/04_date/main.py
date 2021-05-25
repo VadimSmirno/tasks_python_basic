@@ -1,16 +1,20 @@
 class Date:
 
-    def __init__(self):
-        # TODO, предлагаю разбить дату на аргументы при запросе данных и сделать один или несколько обязательных параметров.
-        self.date = None
+    def __init__(self,number,month,year):
+        self.number = number
+        self.month = month
+        self.year = year
+
+    def __str__(self):
+        return f'День: {self.number}\t' \
+               f'Месяц: {self.month}\t' \
+               f'Год: {self.year}\n'
 
     @classmethod
     def from_string(cls, date):
         lst_date = date.split('-')
-        # TODO, возвращать необходимо объект класса Date
-        return f'День: {lst_date[0]}\t' \
-               f'Месяц: {lst_date[1]}\t' \
-               f'Год: {lst_date[2]}\n'
+        result = Date(lst_date[0],lst_date[1],lst_date[2])
+        return result
 
     @classmethod
     def is_date_valid(cls, date):
