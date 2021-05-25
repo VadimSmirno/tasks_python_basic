@@ -1,6 +1,6 @@
 class Date:
 
-    def __init__(self,number,month,year):
+    def __init__(self, number, month, year):
         self.number = number
         self.month = month
         self.year = year
@@ -13,7 +13,7 @@ class Date:
     @classmethod
     def from_string(cls, date):
         lst_date = date.split('-')
-        result = cls(lst_date[0],lst_date[1],lst_date[2])
+        result = cls(lst_date[0], lst_date[1], lst_date[2])
         return result
 
     @classmethod
@@ -32,3 +32,5 @@ date = Date.from_string('10-12-2077')
 print(date)
 print(Date.is_date_valid('10-12-2077'))
 print(Date.is_date_valid('40-12-2077'))
+
+# зачёт!
