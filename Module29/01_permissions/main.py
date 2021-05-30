@@ -7,8 +7,7 @@ def check_permission(user_name: str) -> Callable:
         @functools.wraps(func)
         def wrapped_func(*args, **kwargs):
             try:
-                # TODO, стоит проверять наличие пользователя в списке user_permissions =)
-                if user_name != 'admin'.lower():
+                if user_name not in user_permissions:
                     raise PermissionError(f'У пользователя недостаточно прав, чтобы выполнить функцию {func.__name__}')
                 result = func(*args, **kwargs)
                 return result
