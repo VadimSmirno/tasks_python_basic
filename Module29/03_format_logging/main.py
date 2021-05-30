@@ -10,8 +10,8 @@ def log_methods(data):
             for i_method_name in dir(cls):
                 if i_method_name.startswith('__') is False:
 
-                    print(f'Запускается {cls.__name__} {i_method_name}',end=' ')
-                    print ('Дата и время запуска',
+                    print(f'Запускается "{cls.__name__}.{i_method_name}".',end=' ')
+                    print ('Дата и время запуска: ',
                            datetime.datetime.now().strftime(''.join(['%' + i if i.isalpha() else i for i in data])))
             return instanse
         return wrapped_func
@@ -43,6 +43,7 @@ def for_all_methods(decorator):
 @log_methods("b d Y - H:M:S")
 @for_all_methods(timer)
 class A:
+
     def test_sum_1(self) -> int:
         print('test sum 1')
         number = 100
