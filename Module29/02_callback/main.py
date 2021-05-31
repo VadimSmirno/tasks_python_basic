@@ -1,19 +1,15 @@
 import functools
+from  typing import Callable
 
-
-def callback(sumbol):  # TODO, по идее, возвращаем объект Callable =)
+app = {}
+def callback(sumbol)->Callable:
     def decorator(func):
-
-        # TODO, предлагаю попробовать заполнять словарь в этой функции обёртке.
-
+        app[sumbol] = func
         @functools.wraps(func)
         def wrapped_func(*args, **kwargs):
             value = func(*args, **kwargs)
-            app = {sumbol: value}  #  TODO, таким образом, каждый раз создаётся новый словарь. Предлагаю каждый раз добавлять только один ключ
             return value
-
         return wrapped_func
-
     return decorator
 
 
@@ -21,9 +17,6 @@ def callback(sumbol):  # TODO, по идее, возвращаем объект 
 def example():
     print('Пример функции, которая возвращает ответ сервера')
     return 'OK'
-
-
-app = {}
 
 route = app.get('//')
 if route:

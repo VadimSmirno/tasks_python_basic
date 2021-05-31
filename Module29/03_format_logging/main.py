@@ -3,25 +3,21 @@ import datetime
 import functools
 
 
-def log_methods(data):
-
+def log_methods(data,decorator):
     def createtime(cls):
-
         @functools.wraps(cls)
         def wrapped_func(*args, **kwargs):
             instanse = cls(*args, **kwargs)
             for i_method_name in dir(cls):
                 if i_method_name.startswith('__') is False:
-                    # TODO, первым делом стоит сохранить метод класса в переменную, при помощи getattr.
+                    cur_method = getattr(cls, i_method_name)
+                    decorator_method = decorator(cur_method)
+                    setattr(cls, i_method_name, decorator_method)
                     print(f'Запускается "{cls.__name__}.{i_method_name}".', end=' ')
                     print('Дата и время запуска: ',
                           datetime.datetime.now().strftime(''.join(['%' + i if i.isalpha() else i for i in data])))
-                    # TODO, сам метод необходимо немного изменить.
-                    # TODO По итогам, необходимо присвоить новый метод, вместо старого при помощи setattr =)
             return instanse
-
         return wrapped_func
-
     return createtime
 
 
@@ -46,11 +42,10 @@ def for_all_methods(decorator):
                 decorator_method = decorator(cur_method)
                 setattr(cls, i_method_name, decorator_method)
         return cls
-
     return decorate
 
 
-@log_methods("b d Y - H:M:S")
+@log_methods("b d Y - H:M:S",timer)
 # @for_all_methods(timer)
 class A:
 
@@ -63,13 +58,13 @@ class A:
         return result
 
 
-@log_methods("b d Y - H:M:S")
+@log_methods("b d Y - H:M:S",timer)
 class B(A):
-    def test_sum_1(self):  # TODO, возвращаем None?
+    def test_sum_1(self)->None:
         super().test_sum_1()
         print("Наследник test sum 1")
 
-    def test_sum_2(self):  # TODO, возвращаем число?
+    def test_sum_2(self)->int:
         print("test sum 2")
         number = 200
         result = 0
