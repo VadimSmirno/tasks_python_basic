@@ -2,8 +2,9 @@ import functools
 from typing import Callable
 
 
-def singleton(cls):
+def singleton(cls)->Callable:
     instances = {}
+    @functools.wraps(cls)
     def getinstance():
         if cls not in instances:
             instances[cls] = cls()
