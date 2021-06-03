@@ -5,11 +5,9 @@ from typing import Callable
 def singleton(cls) -> Callable:
     @functools.wraps(cls)
     def getinstance(*args,**kwargs):
-        # TODO, только было бы правильней присвоить к getinstance.instances
-        #  результат создания объекта класса и вернуть его.
-        cls(*args,**kwargs)
-        return cls.instances
-    cls.instances = None # TODO cls, тоже стоит заменить на функцию getinstance.
+        getinstance.instances = cls(*args,**kwargs)
+        return getinstance.instances
+    getinstance.instances = None
     return getinstance
 
 
