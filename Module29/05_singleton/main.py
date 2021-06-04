@@ -4,10 +4,11 @@ from typing import Callable
 
 def singleton(cls) -> Callable:
     @functools.wraps(cls)
-    def getinstance(*args,**kwargs):
+    def getinstance(*args, **kwargs):
         if getinstance.instances == None:
-            getinstance.instances = cls(*args,**kwargs)
+            getinstance.instances = cls(*args, **kwargs)
         return getinstance.instances
+
     getinstance.instances = None
     return getinstance
 
@@ -24,3 +25,5 @@ print(id(my_obj))
 print(id(my_another_obj))
 
 print(my_obj is my_another_obj)
+
+# зачёт!
