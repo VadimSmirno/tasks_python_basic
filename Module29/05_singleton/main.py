@@ -5,9 +5,8 @@ from typing import Callable
 def singleton(cls) -> Callable:
     @functools.wraps(cls)
     def getinstance(*args,**kwargs):
-        # TODO, стоит добавить проверку, если getinstance.instances не определён,
-        #  то задаём значение и возвращаем. В таком случае, будет работать корректно =)
-        getinstance.instances = cls(*args,**kwargs)
+        if getinstance.instances == None:
+            getinstance.instances = cls(*args,**kwargs)
         return getinstance.instances
     getinstance.instances = None
     return getinstance
