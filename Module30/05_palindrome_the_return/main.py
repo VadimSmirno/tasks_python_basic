@@ -16,3 +16,6 @@ def can_be_poly(str):
 
 print(can_be_poly('ababc'))
 print(can_be_poly('abbbc'))
+
+# TODO, перелагаю попробовать решить задание в одну сроку =)
+#  Стоит использовать функции filter + lambda. Возможно, упростит решением класс Counter модуля collections =)
