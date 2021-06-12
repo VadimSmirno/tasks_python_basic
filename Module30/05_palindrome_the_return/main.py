@@ -22,4 +22,4 @@ def can_be_poly(str):
 print(can_be_poly('ab aBc'))
 print(can_be_poly('abbbc'))
 
-
+# зачёт!
