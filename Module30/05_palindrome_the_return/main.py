@@ -1,5 +1,6 @@
 import collections
 
+
 # def can_be_poly(str):
 #     str_lower = str.lower()
 #     dct_count = defaultdict(int)
@@ -15,13 +16,17 @@ import collections
 #     return  True
 
 def can_be_poly(str):
-    result = filter(lambda x : x % 2 != 0,collections.Counter(str.replace(' ','').lower()).values())
-    if len(list(result))> 1:
+    result = filter(lambda x: x % 2 != 0, collections.Counter(str.replace(' ', '').lower()).values())
+    if len(list(result)) > 1:
         return False
     else:
         return True
+
+    return len(list(result)) <= 1
+
+
 #
 print(can_be_poly('ab aBc'))
 print(can_be_poly('abbbc'))
 
-
+# зачёт!
