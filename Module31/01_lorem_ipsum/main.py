@@ -6,6 +6,8 @@ nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretiu
 Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate 
 """
 
+# А ещё, любую букву можно выбрать так \w.
+res = re.findall(r'\b[a-zA-Z]{4}\b', text)
+print(res)
 
-res = re.findall(r'\b[a-zA-Z]{4}\b',text)
-print (res)
+# зачёт!
