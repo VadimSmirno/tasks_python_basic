@@ -22,7 +22,6 @@ def can_be_poly(str):
     else:
         return True
 
-    return len(list(result)) <= 1
 
 
 #
