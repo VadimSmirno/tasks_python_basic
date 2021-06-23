@@ -2,24 +2,19 @@ import requests
 import json
 
 url = 'https://www.breakingbadapi.com/api/deaths'
+url_episodes = 'https://www.breakingbadapi.com/api/episodes'
 
 my_req = requests.get(url=url)
-
 res = json.loads(my_req.text)
 
-max_value = 0
+req_episodes = requests.get('https://www.breakingbadapi.com/api/episodes')
+res_episodes = json.loads(req_episodes.text)
+# print (json.dumps(res_episodes,indent=4))
 
-# TODO, предлагаю упростить выборку словаря с максимальным количеством смертей.
-#  Стоит передать список словарей deaths в функцию max, если в параметр key функции передать lambda функцию,
-#  То, сможет найти словарь с максимальным значением по интересующему нас ключу в одну строку кода.
-#  Обратите внимание, id Эпизода необходимо взять по этой ссылке https://www.breakingbadapi.com/api/episodes =)
+dict_max_value = max(res,key=lambda x : x['number_of_deaths'])
+print (json.dumps(dict_max_value,indent=4))
 
 
-for i in res:
-    if i['number_of_deaths'] > max_value:
-        max_value = i['number_of_deaths']
-
-for i in res:
-    if i['number_of_deaths'] == max_value:
-        print(json.dumps(i, indent=4))
-# print (json.dumps(res,indent=4))
+for i_dict in res_episodes:
+    if i_dict["season"] == '2' and i_dict["episode"] == '13':
+        print ("episode_id: ", i_dict["episode_id"])

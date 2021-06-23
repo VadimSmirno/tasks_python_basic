@@ -1,12 +1,15 @@
 import requests
-import json
+import re
 
 
 url = 'http://www.columbia.edu/~fdc/sample.html'
 
 my_req = requests.get(url=url)
+res = my_req.text
 
-# TODO, задание выглядит недописаным =)
+print (re.findall(r'<h3.+</h3>',res))
+
+
 
 
 
